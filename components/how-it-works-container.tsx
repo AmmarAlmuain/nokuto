@@ -14,7 +14,7 @@ export default function HowItWorkContainer() {
             </div>
             <div>
               <p className="w-full max-w-6xl text-grey/40 max-md:text-sm">
-                At Klothink, we've designed a straightforward shopping
+                At Klothink, we&apos;ve designed a straightforward shopping
                 experience to make fashion accessible. Explore the journey from
                 discovering the latest trends to receiving your handpicked
                 styles with ease.
