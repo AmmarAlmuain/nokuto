@@ -3,7 +3,7 @@ export default function HowItWorkContainer() {
     <>
       <section className="how-it-works-container w-full">
         <div className="flex w-full flex-col gap-y-[50px] max-xl:gap-y-10">
-          <div className="flex flex-col gap-y-4">
+          <div className="flex flex-col gap-y-5">
             <div className="flex h-[52px] max-md:h-fit max-md:flex-col max-md:gap-y-1">
               <h1 className="text-[38px] font-semibold uppercase text-grey/10 max-md:order-2 max-md:text-[28px]">
                 Seamless Experience.
