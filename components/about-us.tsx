@@ -59,8 +59,8 @@ export default function AboutUs() {
                     </span>
                   </div>
                   <p className="text-sm text-grey/40">
-                    We're trendsetters, curating styles that empower and inspire
-                    confidence.
+                    We&apos;re trendsetters, curating styles that empower and
+                    inspire confidence.
                   </p>
                 </div>
               </div>
