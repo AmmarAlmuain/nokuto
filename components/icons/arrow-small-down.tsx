@@ -12,9 +12,9 @@ export default function ArrowSmallDown({ className }: { className?: string }) {
         <path
           d="M10 4.25V16.75M10 16.75L15.625 11.125M10 16.75L4.375 11.125"
           stroke="#4C4C4D"
-          stroke-width="1.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
       </svg>
     </>

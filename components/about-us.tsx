@@ -81,7 +81,7 @@ export default function AboutUs() {
                 </div>
               </div>
             </div>
-            <div className="flex w-full items-center justify-center gap-x-1">
+            <div className="hidden w-full items-center justify-center gap-x-1 max-xl:flex">
               <span className="text-sm font-medium text-grey/30">View All</span>
               <ArrowSmallDown />
             </div>
