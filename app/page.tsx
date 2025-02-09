@@ -10,15 +10,15 @@ export default function Home() {
     <>
       <main className="px-20 py-20 max-xl:px-4">
         <HeroContainer />
-        <div className="divider py-20 max-xl:py-10"></div>
+        <div className="py-20 divider max-xl:py-10"></div>
         <Products />
-        <div className="divider py-20 max-xl:py-10"></div>
+        <div className="py-20 divider max-xl:py-10"></div>
         <AboutUs />
-        <div className="divider py-20 max-xl:py-10"></div>
+        <div className="py-20 divider max-xl:py-10"></div>
         <Testimonials />
-        <div className="divider py-20 max-xl:py-10"></div>
+        <div className="py-20 divider max-xl:py-10"></div>
         <Faq />
-        <div className="divider py-20 max-xl:py-10"></div>
+        <div className="py-20 divider max-xl:py-10"></div>
         <HowItWorkContainer />
       </main>
     </>
