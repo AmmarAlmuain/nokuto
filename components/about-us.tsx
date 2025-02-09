@@ -117,30 +117,32 @@ export default function AboutUs() {
                 <ArrowSmallDown />
               </div>
             )}
-            {expendHighlight && (
-              <div className="flex gap-x-5 max-xl:flex-col max-xl:gap-y-5">
-                {aboutUsHighlights.slice(3, 6).map((highlight, index) => (
-                  <div
-                    key={index}
-                    className="w-full rounded-2xl border border-white/95 bg-white p-[30px] max-xl:p-6"
-                  >
-                    <div className="flex flex-col gap-y-5 max-xl:gap-y-4">
-                      <div className="flex gap-x-[10px]">
-                        <button className="flex h-12 w-12 items-center justify-center rounded-full bg-yellow/50">
-                          {highlight.icon}
-                        </button>
-                        <span className="flex items-center justify-center text-lg font-medium text-grey/15 max-xl:text-base">
-                          {highlight.title}
-                        </span>
-                      </div>
-                      <p className="text-sm text-grey/40">
-                        {highlight.description}
-                      </p>
+            <div
+              className={`flex gap-x-5 max-xl:flex-col max-xl:gap-y-5 ${
+                expendHighlight ? "max-xl:flex" : "max-xl:hidden"
+              }`}
+            >
+              {aboutUsHighlights.slice(3, 6).map((highlight, index) => (
+                <div
+                  key={index}
+                  className="w-full rounded-2xl border border-white/95 bg-white p-[30px] max-xl:p-6"
+                >
+                  <div className="flex flex-col gap-y-5 max-xl:gap-y-4">
+                    <div className="flex gap-x-[10px]">
+                      <button className="flex h-12 w-12 items-center justify-center rounded-full bg-yellow/50">
+                        {highlight.icon}
+                      </button>
+                      <span className="flex items-center justify-center text-lg font-medium text-grey/15 max-xl:text-base">
+                        {highlight.title}
+                      </span>
                     </div>
+                    <p className="text-sm text-grey/40">
+                      {highlight.description}
+                    </p>
                   </div>
-                ))}
-              </div>
-            )}
+                </div>
+              ))}
+            </div>
             {expendHighlight && (
               <div className="w-full items-center justify-center gap-x-1 max-xl:flex">
                 <span

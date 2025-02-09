@@ -1,7 +1,4 @@
 import Image from "next/image";
-import ts from "@/assets/images/ts.png";
-import ts2 from "@/assets/images/ts-2.png";
-import ts3 from "@/assets/images/ts-3.png";
 import dummyAvatar from "@/assets/images/dummyAvatar.svg";
 
 const testimonials = [
