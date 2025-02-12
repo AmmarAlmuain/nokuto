@@ -1,62 +1,53 @@
 import Image from "next/image";
 import dummyAvatar from "@/assets/images/dummyAvatar.svg";
 
-const testimonials = [
+const reviews = [
   {
     id: 1,
-    name: "Jhon Doe",
+    name: "Alex M",
     comment:
-      "Klothink exceeded my expectations. The gown's quality and design made me feel like a queen. Fast shipping, too!",
+      "Absolutely love this denim jacket! The fit is perfect, and the distressed detailing gives it a rugged yet stylish look. It's become my go-to piece for casual outings. Highly recommend!",
   },
   {
     id: 2,
-    name: "Rajesh Patel",
+    name: "Peter Loker",
     comment:
-      "Absolutely love the style and warmth of the jacket. A perfect blend of fashion and functionality!",
+      "Great quality and versatile styling options. The buttons are sturdy, and the jacket feels well-made. I deducted one star because I wish it had an inside pocket, but overall.",
   },
   {
     id: 3,
-    name: "Welter Mockren",
+    name: "Chris B",
     comment:
-      "Adorable and comfortable! My daughter loves her new outfit. Thank you, Klothink, for dressing our little fashionista.",
+      "Urban Explorer exceeded my expectations. The denim is of excellent quality, and the fit is just right. It's become my favorite jacket for weekend adventures.",
   },
 ];
 
-export default function Testimonials() {
+export default function Reviews() {
   return (
     <>
-      <section className="testimonials w-full">
+      <section className="product-reviews w-full">
         <div className="flex flex-col gap-y-[60px]">
           {/* Here the header default message start! */}
-          <div className="flex gap-x-[150px] max-xl:flex-col max-xl:gap-y-6">
-            <div className="flex flex-col gap-y-5">
-              <div className="flex h-[52px] max-md:h-fit max-md:flex-col max-md:gap-y-1">
-                <h1 className="text-[38px] font-semibold uppercase text-grey/10 max-md:order-2 max-md:text-[28px]">
-                  Customers Love.
-                </h1>
-                <span className="px-[10px] pt-1 text-sm font-semibold text-grey/60 max-md:order-1 max-md:px-0 max-md:pt-0">
-                  Testimonials
-                </span>
-              </div>
-              <div>
-                <p className="w-full max-w-6xl text-grey/40 max-md:text-sm">
-                  At Klothink, our customers are the heartbeat of our brand.
-                  Explore the heartfelt testimonials shared by those who have
-                  experienced the magic of Klothink fashion.
-                </p>
-              </div>
+          <div className="flex flex-col gap-y-5">
+            <div className="flex h-[52px] max-md:h-fit max-md:flex-col max-md:gap-y-1">
+              <h1 className="text-[38px] font-semibold uppercase text-grey/10 max-md:order-2 max-md:text-[28px]">
+                Reviews
+              </h1>
+              <span className="px-[10px] pt-1 text-sm font-semibold text-grey/60 max-md:order-1 max-md:px-0 max-md:pt-0">
+                Product Reviews
+              </span>
             </div>
-            <div className="flex items-center justify-center max-xl:justify-start">
-              <button className="rounded-[32px] bg-yellow/50 px-5 py-[14px]">
-                <span className="whitespace-nowrap text-sm font-semibold">
-                  View All Testimonials
-                </span>
-              </button>
+            <div>
+              <p className="w-full max-w-6xl text-grey/40 max-md:text-sm">
+                At Klothink, our customers are the heartbeat of our brand.
+                Explore the heartfelt testimonials shared by those who have
+                experienced the magic of Klothink fashion.
+              </p>
             </div>
           </div>
           {/* Here its end! */}
           <div className="flex gap-x-5 rounded-2xl overflow-x-auto border border-white/97 bg-white/99 p-6 max-xl:p-5">
-            {testimonials.map((testimonial, index) => (
+            {reviews.map((review, index) => (
               <div
                 key={index}
                 className="flex w-full flex-col gap-y-[30px] rounded-2xl border border-white/95 bg-white p-10 max-xl:gap-y-5 max-xl:p-[30px]"
@@ -67,14 +58,14 @@ export default function Testimonials() {
                       <Image
                         className="rounded-full"
                         src={dummyAvatar}
-                        alt="testimonial-image"
+                        alt="review-image"
                         width={50}
                         height={50}
                       />
                     </div>
                     <div className="flex h-fit flex-col items-start justify-center">
                       <span className="font-medium text-grey/15">
-                        {testimonial.name}
+                        {review.name}
                       </span>
                       <div className="flex gap-x-[3px]">
                         {[0, 1, 2, 3, 4].map((el) => {
@@ -105,7 +96,7 @@ export default function Testimonials() {
                 </div>
                 <div>
                   <p className="text-grey/30 max-xl:text-sm">
-                    {testimonial.comment}
+                    {review.comment}
                   </p>
                 </div>
               </div>
