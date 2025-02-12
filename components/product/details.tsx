@@ -26,7 +26,7 @@ export default function Details() {
                 <div className="flex flex-col max-xl:gap-y-1">
                   <div className="flex gap-x-[6px] items-center justify-start">
                     <span className="text-grey/40 max-xl:text-sm">
-                      Men's Casual Outerwear
+                      Men&apos;s Casual Outerwear
                     </span>
                     <div className="px-[10px] max-xl:text-xs py-0.5 flex justify-center items-center rounded-[30px] bg-yellow/70">
                       <span>12 Left!</span>
