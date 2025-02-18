@@ -3,7 +3,7 @@
 import Image from "next/image";
 import ShoppingCart from "@/components/icons/shopping-cart";
 import { useState, useEffect } from "react";
-import { products } from "@/lib/database";
+import { Product, products } from "@/lib/database";
 import { shuffleArray } from "@/lib/utils";
 
 export default function Products() {
@@ -11,7 +11,7 @@ export default function Products() {
   const subCategories = ["Casual", "Formal", "Sport"];
   const [activeCategory, setActiveCategory] = useState<number>(0);
   const [activeSubCategory, setActiveSubCategory] = useState<number>(0);
-  const [filteredProducts, setFilteredProducts] = useState<any[]>([]);
+  const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
 
   useEffect(() => {
     const filtered = shuffleArray(
@@ -26,7 +26,7 @@ export default function Products() {
       })
     ).slice(0, 5);
     setFilteredProducts(filtered);
-  }, [activeCategory, activeSubCategory]);
+  }, [activeCategory, activeSubCategory, categories, subCategories]);
 
   return (
     <>

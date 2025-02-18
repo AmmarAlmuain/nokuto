@@ -1,5 +1,3 @@
-import Phone from "./icons/phone";
-
 export default function ProductsHeader() {
   return (
     <>
