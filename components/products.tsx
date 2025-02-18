@@ -1,11 +1,33 @@
+"use client";
+
 import Image from "next/image";
-import pr from "@/assets/images/pr.png";
-import pr2 from "@/assets/images/pr-2.png";
-import pr3 from "@/assets/images/pr-3.png";
-import pr4 from "@/assets/images/pr-4.png";
 import ShoppingCart from "@/components/icons/shopping-cart";
+import { useState, useEffect } from "react";
+import { products } from "@/lib/database";
+import { shuffleArray } from "@/lib/utils";
 
 export default function Products() {
+  const categories = ["All", "Mens", "Womens", "Kids"];
+  const subCategories = ["Casual", "Formal", "Sport"];
+  const [activeCategory, setActiveCategory] = useState<number>(0);
+  const [activeSubCategory, setActiveSubCategory] = useState<number>(0);
+  const [filteredProducts, setFilteredProducts] = useState<any[]>([]);
+
+  useEffect(() => {
+    const filtered = shuffleArray(
+      products.filter((product) => {
+        if (categories[activeCategory] === "All") {
+          return subCategories[activeSubCategory] === product.subcategory;
+        }
+        return (
+          subCategories[activeSubCategory] === product.subcategory &&
+          categories[activeCategory] === product.category
+        );
+      })
+    ).slice(0, 5);
+    setFilteredProducts(filtered);
+  }, [activeCategory, activeSubCategory]);
+
   return (
     <>
       <section className="products w-full">
@@ -40,32 +62,68 @@ export default function Products() {
           <div>
             <div className="flex w-full items-center justify-between overflow-x-auto overflow-y-hidden border-b border-t border-white/95 py-[30px] max-xl:h-[62px] max-xl:py-5">
               <div className="flex">
-                <button>
-                  <span className="font-semibold text-grey/10">All</span>
-                </button>
-                <div className="divider mx-4 border-r border-white/95 max-xl:mx-[10px]"></div>
-                <button className="font-medium text-grey/60">Menswear</button>
-                <div className="divider mx-4 border-r border-white/95 max-xl:mx-[10px]"></div>
-                <button className="font-medium text-grey/60">Womenswear</button>
-                <div className="divider mx-4 border-r border-white/95 max-xl:mx-[10px]"></div>
-                <button className="font-medium text-grey/60">Kidswear</button>
+                {["All", "Menswear", "Womenswear", "Kidswear"].map(
+                  (category, index) => {
+                    return (
+                      <div className="flex" key={index}>
+                        <button>
+                          <span
+                            onClick={() => {
+                              if (activeCategory === index) {
+                                setActiveCategory(0);
+                              } else {
+                                setActiveCategory(index);
+                              }
+                            }}
+                            className={`${
+                              activeCategory === index
+                                ? "font-semibold text-grey/10"
+                                : "font-medium text-grey/60"
+                            }`}
+                          >
+                            {category}
+                          </span>
+                        </button>
+                        {index === 3 ? (
+                          <></>
+                        ) : (
+                          <div className="divider mx-4 border-r border-white/95 max-xl:mx-[10px]"></div>
+                        )}
+                      </div>
+                    );
+                  }
+                )}
               </div>
               <div className="flex gap-x-2 max-xl:hidden">
-                <button className="rounded-[32px] bg-grey/15 px-5 py-3">
-                  <span className="text-sm font-semibold text-white">
-                    Casual
-                  </span>
-                </button>
-                <button className="rounded-[32px] border border-white/95 px-5 py-3">
-                  <span className="text-sm font-semibold text-grey/15">
-                    Formal
-                  </span>
-                </button>
-                <button className="rounded-[32px] border border-white/95 px-5 py-3">
-                  <span className="text-sm font-semibold text-grey/15">
-                    Party
-                  </span>
-                </button>
+                {["Casual", "Formal", "Party"].map((subCategory, index) => {
+                  return (
+                    <button
+                      key={index}
+                      onClick={() => {
+                        if (activeSubCategory === index) {
+                          setActiveSubCategory(0);
+                        } else {
+                          setActiveSubCategory(index);
+                        }
+                      }}
+                      className={`rounded-[32px] px-5 py-3 ${
+                        activeSubCategory === index
+                          ? "bg-grey/15"
+                          : "border border-white/95"
+                      }`}
+                    >
+                      <span
+                        className={`text-sm font-semibold ${
+                          activeSubCategory === index
+                            ? "text-white"
+                            : "text-grey/15"
+                        }`}
+                      >
+                        {subCategory}
+                      </span>
+                    </button>
+                  );
+                })}
               </div>
             </div>
             <div className="hidden w-full items-center justify-center py-5 max-xl:flex">
@@ -88,149 +146,34 @@ export default function Products() {
               </div>
             </div>
           </div>
-          <div className="flex items-center justify-start gap-x-[30px] overflow-x-auto pb-[60px]">
-            <div className="flex flex-col gap-y-5">
-              <div className="relative">
-                <div className="absolute scale-90">
-                  <Image
-                    src={pr}
-                    alt="product-image"
-                    className="h-[318px] w-[300px] object-contain"
-                  />
+          <div className="flex items-start justify-start gap-x-[30px] overflow-x-auto pb-[60px]">
+            {filteredProducts &&
+              filteredProducts.map((product, index) => (
+                <div key={index} className="flex flex-col gap-y-5">
+                  <div className="w-[318px] relative h-[300px] flex justify-center items-center overflow-hidden rounded-lg">
+                    <Image
+                      src={product.images[0]}
+                      alt="product-image"
+                      layout="fill"
+                      objectFit="contain"
+                      className="absolute scale-90"
+                    />
+                  </div>
+                  <div className="flex gap-x-4 justify-between">
+                    <div className="flex flex-col items-start justify-center gap-y-0.5">
+                      <span className="font-semibold text-grey/15 w-60">
+                        {product.name}
+                      </span>
+                      <span className="font-medium text-grey/30">
+                        {product.price}
+                      </span>
+                    </div>
+                    <button className="flex items-center w-[52px] h-[52px] justify-center rounded-full bg-yellow/50 p-4">
+                      <ShoppingCart />
+                    </button>
+                  </div>
                 </div>
-                <div className="absolute bottom-0 right-0">
-                  <button className="flex items-center justify-center rounded-full bg-yellow/50 p-4">
-                    <ShoppingCart />
-                  </button>
-                </div>
-                <svg
-                  width="298"
-                  height="318"
-                  viewBox="0 0 298 318"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M297.5 16C297.5 7.16344 290.337 0 281.5 0H16C7.16344 0 0 7.16345 0 16V302C0 310.837 7.16346 318 16 318H228.971C234.65 318 238.398 311.588 237.467 305.985L235.989 297.087C232.026 273.236 252.334 252.386 276.281 255.717C284.927 256.92 297.5 251.076 297.5 242.347V16Z"
-                    fill="#F7F7F8"
-                  />
-                </svg>
-              </div>
-              <div className="flex flex-col items-start justify-center gap-y-0.5">
-                <span className="font-semibold text-grey/15">
-                  Classic Denim Jeans
-                </span>
-                <span className="font-medium text-grey/30">$49.99</span>
-              </div>
-            </div>
-            <div className="flex flex-col gap-y-5">
-              <div className="relative">
-                <div className="absolute scale-90">
-                  <Image
-                    src={pr2}
-                    alt="product-image"
-                    className="h-[318px] w-[300px] object-contain"
-                  />
-                </div>
-                <div className="absolute bottom-0 right-0">
-                  <button className="flex items-center justify-center rounded-full bg-yellow/50 p-4">
-                    <ShoppingCart />
-                  </button>
-                </div>
-                <svg
-                  width="298"
-                  height="318"
-                  viewBox="0 0 298 318"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M297.5 16C297.5 7.16344 290.337 0 281.5 0H16C7.16344 0 0 7.16345 0 16V302C0 310.837 7.16346 318 16 318H228.971C234.65 318 238.398 311.588 237.467 305.985L235.989 297.087C232.026 273.236 252.334 252.386 276.281 255.717C284.927 256.92 297.5 251.076 297.5 242.347V16Z"
-                    fill="#F7F7F8"
-                  />
-                </svg>
-              </div>
-              <div className="flex flex-col items-start justify-center gap-y-0.5">
-                <span className="font-semibold text-grey/15">
-                  Cozy Comfort Hoodie
-                </span>
-                <span className="font-medium text-grey/30">$39.99</span>
-              </div>
-            </div>
-            <div className="flex flex-col gap-y-5">
-              <div className="relative">
-                <div className="absolute scale-90">
-                  <Image
-                    src={pr3}
-                    alt="product-image"
-                    className="h-[318px] w-[300px] object-contain"
-                  />
-                </div>
-                <div className="absolute bottom-0 right-0">
-                  <button className="flex items-center justify-center rounded-full bg-yellow/50 p-4">
-                    <ShoppingCart />
-                  </button>
-                </div>
-                <svg
-                  width="298"
-                  height="318"
-                  viewBox="0 0 298 318"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M297.5 16C297.5 7.16344 290.337 0 281.5 0H16C7.16344 0 0 7.16345 0 16V302C0 310.837 7.16346 318 16 318H228.971C234.65 318 238.398 311.588 237.467 305.985L235.989 297.087C232.026 273.236 252.334 252.386 276.281 255.717C284.927 256.92 297.5 251.076 297.5 242.347V16Z"
-                    fill="#F7F7F8"
-                  />
-                </svg>
-              </div>
-              <div className="flex flex-col items-start justify-center gap-y-0.5">
-                <span className="font-semibold text-grey/15">
-                  Classic Polo Shirt
-                </span>
-                <span className="font-medium text-grey/30">$29.99</span>
-              </div>
-            </div>
-            <div className="flex flex-col gap-y-5">
-              <div className="relative">
-                <div className="absolute scale-90">
-                  <Image
-                    src={pr4}
-                    alt="product-image"
-                    className="h-[318px] w-[300px] object-contain"
-                  />
-                </div>
-                <div className="absolute bottom-0 right-0">
-                  <button className="flex items-center justify-center rounded-full bg-yellow/50 p-4">
-                    <ShoppingCart />
-                  </button>
-                </div>
-                <svg
-                  width="298"
-                  height="318"
-                  viewBox="0 0 298 318"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M297.5 16C297.5 7.16344 290.337 0 281.5 0H16C7.16344 0 0 7.16345 0 16V302C0 310.837 7.16346 318 16 318H228.971C234.65 318 238.398 311.588 237.467 305.985L235.989 297.087C232.026 273.236 252.334 252.386 276.281 255.717C284.927 256.92 297.5 251.076 297.5 242.347V16Z"
-                    fill="#F7F7F8"
-                  />
-                </svg>
-              </div>
-              <div className="flex flex-col items-start justify-center gap-y-0.5">
-                <span className="font-semibold text-grey/15">Chino Pants</span>
-                <span className="font-medium text-grey/30">$44.99</span>
-              </div>
-            </div>
+              ))}
           </div>
         </div>
       </section>
