@@ -1,3 +1,4 @@
+import Link from "next/link";
 import ArrowUpRight from "./icons/arrow-up-right";
 import Hamburger from "./icons/hamburger";
 import Logo from "./icons/logo";
@@ -20,10 +21,16 @@ export default function Navbar() {
         <div className="bottom-nav flex items-center justify-between border-b border-white/95 px-20 py-[18px] max-lg:px-4 max-lg:py-5">
           <div className="flex gap-x-[10px] max-md:hidden">
             <button className="rounded-full bg-white/97 px-5 py-3">
-              <span className="text-sm font-medium text-grey/15">Home</span>
+              <Link href={"/"}>
+                <span className="text-sm font-medium text-grey/15">Home</span>
+              </Link>
             </button>
             <button className="rounded-full border border-white/95 px-[18px] py-3">
-              <span className="text-sm font-medium text-grey/40">Products</span>
+              <Link href={"/products"}>
+                <span className="text-sm font-medium text-grey/40">
+                  Products
+                </span>
+              </Link>
             </button>
           </div>
           <div>
@@ -35,7 +42,9 @@ export default function Navbar() {
                 <ShoppingCart />
               </button>
               <button className="rounded-full border border-white/95 px-4 py-3 max-md:hidden">
-                <span className="text-sm font-medium">Contact Support</span>
+                <Link href={"/support"}>
+                  <span className="text-sm font-medium">Contact Support</span>
+                </Link>
               </button>
               <button className="hidden max-md:flex">
                 <Hamburger />

@@ -1,12 +1,13 @@
 import ShoppingBag from "@/components/icons/shopping-bag";
 import Image from "next/image";
 import heroImage from "@/assets/images/hero-image.png";
+import Link from "next/link";
 
 export default function HeroContainer() {
   return (
     <>
       <section className="hero-container flex h-full gap-x-[80px] max-xl:flex-col max-xl:gap-y-10">
-        <div className="sub-container w-full max-w-[675px] max-xl:max-w-full">
+        <div className="sub-container w-full max-xl:max-w-full">
           <div className="bg-yellow max-md:gapy-10 flex flex-col gap-y-[60px]">
             <div className="flex flex-col gap-y-10 max-md:gap-y-6">
               <div className="flex flex-col gap-y-5 max-md:gap-y-[10px]">
@@ -27,10 +28,14 @@ export default function HeroContainer() {
               <div className="flex gap-2 text-grey/15">
                 <button className="flex w-36 items-center justify-center gap-x-[6px] rounded-[32px] bg-yellow/50 px-5 py-[14px]">
                   <ShoppingBag />
-                  <span className="text-sm font-semibold">Shop Now</span>
+                  <Link href={"/products"}>
+                    <span className="text-sm font-semibold">Shop Now</span>
+                  </Link>
                 </button>
                 <button className="w-36 rounded-[32px] border border-white/95 px-5 py-[14px]">
-                  <span className="text-sm font-semibold">Contact Us</span>
+                  <Link href={"/support"}>
+                    <span className="text-sm font-semibold">Contact Us</span>
+                  </Link>
                 </button>
               </div>
             </div>
@@ -75,7 +80,7 @@ export default function HeroContainer() {
             </div>
           </div>
         </div>
-        <div className="sub-container relative flex items-center justify-center rounded-2xl bg-white/97 max-xl:py-16">
+        <div className="sub-container relative min-w-[565px] max-xl:min-w-fit flex items-center justify-center rounded-2xl bg-white/97 max-xl:py-16">
           <Image src={heroImage} alt="hero-image" width={564} height={619} />
           <div className="absolute flex h-full w-full flex-col justify-between px-4 py-5">
             <div className="flex w-full justify-start">

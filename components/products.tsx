@@ -3,8 +3,9 @@
 import Image from "next/image";
 import ShoppingCart from "@/components/icons/shopping-cart";
 import { useState, useEffect, useMemo } from "react";
-import { Product, products } from "@/lib/database";
+import { Product, products } from "@/lib/data";
 import { shuffleArray } from "@/lib/utils";
+import Link from "next/link";
 
 export default function Products() {
   const categories = useMemo(() => ["All", "Mens", "Womens", "Kids"], []);
@@ -53,9 +54,11 @@ export default function Products() {
             </div>
             <div className="flex items-center justify-center max-xl:justify-start">
               <button className="rounded-[32px] bg-yellow/50 px-5 py-[14px]">
-                <span className="whitespace-nowrap text-sm font-semibold">
-                  View All Products
-                </span>
+                <Link href={"/products"}>
+                  <span className="whitespace-nowrap text-sm font-semibold">
+                    View All Products
+                  </span>
+                </Link>
               </button>
             </div>
           </div>
@@ -128,21 +131,35 @@ export default function Products() {
             </div>
             <div className="hidden w-full items-center justify-center py-5 max-xl:flex">
               <div className="flex gap-x-2">
-                <button className="rounded-[32px] bg-grey/15 px-5 py-3">
-                  <span className="text-sm font-semibold text-white">
-                    Casual
-                  </span>
-                </button>
-                <button className="rounded-[32px] border border-white/95 px-5 py-3">
-                  <span className="text-sm font-semibold text-grey/15">
-                    Formal
-                  </span>
-                </button>
-                <button className="rounded-[32px] border border-white/95 px-5 py-3">
-                  <span className="text-sm font-semibold text-grey/15">
-                    Party
-                  </span>
-                </button>
+                {["Casual", "Formal", "Party"].map((subCategory, index) => {
+                  return (
+                    <button
+                      key={index}
+                      onClick={() => {
+                        if (activeSubCategory === index) {
+                          setActiveSubCategory(0);
+                        } else {
+                          setActiveSubCategory(index);
+                        }
+                      }}
+                      className={`rounded-[32px] px-5 py-3 ${
+                        activeSubCategory === index
+                          ? "bg-grey/15"
+                          : "border border-white/95"
+                      }`}
+                    >
+                      <span
+                        className={`text-sm font-semibold ${
+                          activeSubCategory === index
+                            ? "text-white"
+                            : "text-grey/15"
+                        }`}
+                      >
+                        {subCategory}
+                      </span>
+                    </button>
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -150,28 +167,30 @@ export default function Products() {
             {filteredProducts &&
               filteredProducts.map((product, index) => (
                 <div key={index} className="flex flex-col gap-y-5">
-                  <div className="w-[318px] relative h-[300px] flex justify-center items-center overflow-hidden rounded-lg">
-                    <Image
-                      src={product.images[0]}
-                      alt="product-image"
-                      layout="fill"
-                      objectFit="contain"
-                      className="absolute scale-90"
-                    />
-                  </div>
-                  <div className="flex gap-x-4 justify-between">
-                    <div className="flex flex-col items-start justify-center gap-y-0.5">
-                      <span className="font-semibold text-grey/15 w-60">
-                        {product.name}
-                      </span>
-                      <span className="font-medium text-grey/30">
-                        {product.price}
-                      </span>
+                  <Link href={`/products/${product.slug}`}>
+                    <div className="w-[318px] relative h-[300px] flex justify-center items-center overflow-hidden rounded-lg">
+                      <Image
+                        src={product.images[0]}
+                        alt="product-image"
+                        layout="fill"
+                        objectFit="contain"
+                        className="absolute scale-90"
+                      />
                     </div>
-                    <button className="flex items-center w-[52px] h-[52px] justify-center rounded-full bg-yellow/50 p-4">
-                      <ShoppingCart />
-                    </button>
-                  </div>
+                    <div className="flex gap-x-4 justify-between">
+                      <div className="flex flex-col items-start justify-center gap-y-0.5">
+                        <span className="font-semibold text-grey/15 w-60">
+                          {product.name}
+                        </span>
+                        <span className="font-medium text-grey/30">
+                          {product.price}
+                        </span>
+                      </div>
+                      <button className="flex items-center w-[52px] h-[52px] justify-center rounded-full bg-yellow/50 p-4">
+                        <ShoppingCart />
+                      </button>
+                    </div>
+                  </Link>
                 </div>
               ))}
           </div>
