@@ -4,8 +4,6 @@ import ShoppingBag from "@/components/icons/shopping-bag";
 import ShoppingCart from "@/components/icons/shopping-cart";
 import Image from "next/image";
 import { Product } from "@/lib/data";
-import { useEffect, useState } from "react";
-import { getRandomNumber } from "@/lib/utils";
 
 export default function Details({ product }: { product: Product }) {
   const [activePreviewImage, setActivePreviewImage] = useState<number>(0);
