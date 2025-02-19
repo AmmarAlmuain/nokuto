@@ -4,6 +4,7 @@ import ShoppingBag from "@/components/icons/shopping-bag";
 import ShoppingCart from "@/components/icons/shopping-cart";
 import Image from "next/image";
 import { Product } from "@/lib/data";
+import { useState } from "react";
 
 export default function Details({ product }: { product: Product }) {
   const [activePreviewImage, setActivePreviewImage] = useState<number>(0);
