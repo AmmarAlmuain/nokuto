@@ -43,7 +43,7 @@ export default function Faq() {
           <div className="flex flex-col gap-y-5">
             <div className="flex h-[52px] max-md:h-fit max-md:flex-col max-md:gap-y-1">
               <h1 className="text-[38px] font-semibold uppercase text-grey/10 max-md:order-2 max-md:text-[28px]">
-                Questions? We've Got You Covered.
+                Questions? We&apos;ve Got You Covered.
               </h1>
               <span className="px-[10px] pt-1 text-sm font-semibold text-grey/60 max-md:order-1 max-md:px-0 max-md:pt-0">
                 FAQ

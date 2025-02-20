@@ -17,8 +17,8 @@ export default function HowItWorkContainer() {
             </div>
             <div>
               <p className="w-full max-w-6xl text-grey/40 max-md:text-sm">
-                At Nokuto, we've created a seamless shopping journey that brings
-                the latest fashion trends right to your fingertips. From
+                At Nokuto, we&apos;ve created a seamless shopping journey that
+                brings the latest fashion trends right to your fingertips. From
                 browsing stylish outfits to receiving your handpicked
                 selections, we make it easy and enjoyable.
               </p>
