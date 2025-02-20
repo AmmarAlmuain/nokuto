@@ -1,4 +1,9 @@
+"use client";
+
+import { useState } from "react";
+
 export default function ProductsHeader() {
+  const [activeTab, setActiveTab] = useState<number>(0);
   return (
     <>
       <section className="header w-full">
@@ -54,24 +59,31 @@ export default function ProductsHeader() {
         </div>
         <div className="py-[60px] flex justify-center items-center">
           <div className="border border-white/95 gap-x-[10px] rounded-full p-[10px] flex justify-center items-center">
-            <button className="py-3 px-6 bg-white/97 border-white/95 rounded-full">
-              <span className="uppercase text-sm font-semibold">all</span>
-            </button>
-            <button className="py-3 px-6 bg-yellow/50 rounded-full">
-              <span className="uppercase text-sm font-semibold">
-                Men&rsquo;s wear
-              </span>
-            </button>
-            <button className="py-3 px-6 bg-white/97 border-white/95 rounded-full">
-              <span className="uppercase text-sm font-semibold">
-                Women&rsquo;s wear
-              </span>
-            </button>
-            <button className="py-3 px-6 bg-white/97 border-white/95 rounded-full">
-              <span className="uppercase text-sm font-semibold">
-                Kid&rsquo;s wear
-              </span>
-            </button>
+            {["All", "Men's wear", "Women's wear", "Kid's wear"].map(
+              (tab, index) => {
+                return (
+                  <button
+                    onClick={() => {
+                      if (activeTab === index) {
+                        setActiveTab(0);
+                      } else {
+                        setActiveTab(index);
+                      }
+                    }}
+                    key={index}
+                    className={`py-3 px-6 rounded-full transition-all duration-300 ${
+                      activeTab === index
+                        ? "bg-yellow/50"
+                        : "bg-white/97 border-white/95"
+                    }`}
+                  >
+                    <span className="uppercase text-sm font-semibold">
+                      {tab}
+                    </span>
+                  </button>
+                );
+              }
+            )}
           </div>
         </div>
       </section>

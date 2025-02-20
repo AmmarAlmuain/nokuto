@@ -1,102 +1,17 @@
 "use client";
 
 import Plus from "@/components/icons/plus";
+import { questions } from "@/lib/data";
 import { useState } from "react";
 
 export default function Faq() {
   const [activeQuestion, setActiveQuestion] = useState<number | null>(null);
   const menuButtons = [
     "all",
-    "ordering",
-    "shipping",
+    "purchasing",
+    "delivery",
     "returns",
-    "customer support",
-  ];
-  const questions = [
-    {
-      id: 1,
-      title: "Can I modify my order after placing it?",
-      category: "ordering",
-      description:
-        "Yes, you can modify your order within 24 hours of placing it by contacting our customer support.",
-    },
-    {
-      id: 2,
-      title: "How do I initiate a return?",
-      category: "returns",
-      description:
-        "To initiate a return, please visit our Returns page and follow the instructions provided.",
-    },
-    {
-      id: 3,
-      title: "How can I unsubscribe from the newsletter?",
-      category: "customer support",
-      description:
-        "You can unsubscribe from our newsletter by clicking the 'Unsubscribe' link at the bottom of any newsletter email.",
-    },
-    {
-      id: 4,
-      title: "Do you offer exchanges for products?",
-      category: "customer support",
-      description:
-        "Yes, we offer exchanges for products within 30 days of purchase. Please visit our Exchanges page for more details.",
-    },
-    {
-      id: 5,
-      title: "How can I place an order on Klothink?",
-      category: "ordering",
-      description:
-        "To place an order, simply add items to your cart and proceed to checkout. You can create an account or check out as a guest.",
-    },
-    {
-      id: 6,
-      title: "What payment methods do you accept?",
-      category: "customer support",
-      description:
-        "We accept various payment methods, including credit/debit cards, PayPal, and other online payment options.",
-    },
-    {
-      id: 7,
-      title: "How can I track my order?",
-      category: "ordering",
-      description:
-        "You can track your order by logging into your account and visiting the 'Order History' section.",
-    },
-    {
-      id: 8,
-      title: "What is your shipping policy?",
-      category: "shipping",
-      description:
-        "Our shipping policy includes various options. Please visit our Shipping Policy page for detailed information.",
-    },
-    {
-      id: 9,
-      title: "Are there any additional fees for returns?",
-      category: "returns",
-      description:
-        "No, there are no additional fees for returns if you follow the instructions on our Returns page.",
-    },
-    {
-      id: 10,
-      title: "How do I create an account on Klothink?",
-      category: "customer support",
-      description:
-        "To create an account on Klothink, click on the 'Sign Up' button at the top right corner of our homepage and fill in the required details.",
-    },
-    {
-      id: 11,
-      title: "Can I change my account information?",
-      category: "customer support",
-      description:
-        "Yes, you can change your account information by logging into your account and going to the 'Account Settings' section.",
-    },
-    {
-      id: 12,
-      title: "Are my personal details secure on Klothink?",
-      category: "customer support",
-      description:
-        "Yes, your personal details are secure on Klothink. We use advanced security measures to protect your information.",
-    },
+    "customer care",
   ];
   const activeButtonCss = "font-semibold text-grey/10";
   const buttonCss = "font-medium text-grey/60 whitespace-nowrap";
@@ -122,13 +37,13 @@ export default function Faq() {
   });
   return (
     <>
-      <section className="w-full faq">
+      <section id="faq" className="w-full faq">
         <div className="flex w-full flex-col gap-y-[60px] max-xl:gap-y-10">
           {/* Here the header default message start! */}
           <div className="flex flex-col gap-y-5">
             <div className="flex h-[52px] max-md:h-fit max-md:flex-col max-md:gap-y-1">
               <h1 className="text-[38px] font-semibold uppercase text-grey/10 max-md:order-2 max-md:text-[28px]">
-                Questions? We Have Answers.
+                Questions? We've Got You Covered.
               </h1>
               <span className="px-[10px] pt-1 text-sm font-semibold text-grey/60 max-md:order-1 max-md:px-0 max-md:pt-0">
                 FAQ
@@ -136,9 +51,9 @@ export default function Faq() {
             </div>
             <div>
               <p className="w-full max-w-6xl text-grey/40 max-md:text-sm">
-                Ease into the world of Klothink with clarity. Our FAQs cover a
-                spectrum of topics, ensuring you have the information you need
-                for a seamless shopping experience.
+                At Nokuto, we aim to provide clarity at every step. Our FAQ
+                section offers comprehensive answers to make your shopping
+                experience smooth and enjoyable.
               </p>
             </div>
           </div>
@@ -181,7 +96,9 @@ export default function Faq() {
                       <div key={index} className="w-full h-fit">
                         <div
                           className="flex flex-col items-center justify-between rounded-[14px] border border-white/95 p-6 transition-all"
-                          onClick={() => toggleQuestion(question.id)}
+                          onClick={() =>
+                            toggleQuestion(questions.indexOf(question))
+                          }
                         >
                           <div className="flex items-center justify-between w-full">
                             <h4 className="font-medium cursor-pointer text-grey/15">
@@ -191,7 +108,7 @@ export default function Faq() {
                               <div className="divider mx-1"></div>
                               <Plus
                                 className={`transition-all duration-300 cursor-pointer ${
-                                  activeQuestion === question.id
+                                  activeQuestion === questions.indexOf(question)
                                     ? "rotate-45"
                                     : ""
                                 }`}
@@ -200,7 +117,7 @@ export default function Faq() {
                           </div>
                           <p
                             className={`w-full transition-all duration-300 ${
-                              activeQuestion === question.id
+                              activeQuestion === questions.indexOf(question)
                                 ? "mt-4 text-grey/60 flex"
                                 : "hidden"
                             }`}
@@ -212,7 +129,7 @@ export default function Faq() {
                     ))}
                 </div>
               ) : (
-                <></>
+                <div key={index}></div>
               )
             )}
           </div>

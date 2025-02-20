@@ -1,38 +1,18 @@
 import Image from "next/image";
 import dummyAvatar from "@/assets/images/dummyAvatar.svg";
-
-const testimonials = [
-  {
-    id: 1,
-    name: "Jhon Doe",
-    comment:
-      "Klothink exceeded my expectations. The gown's quality and design made me feel like a queen. Fast shipping, too!",
-  },
-  {
-    id: 2,
-    name: "Rajesh Patel",
-    comment:
-      "Absolutely love the style and warmth of the jacket. A perfect blend of fashion and functionality!",
-  },
-  {
-    id: 3,
-    name: "Welter Mockren",
-    comment:
-      "Adorable and comfortable! My daughter loves her new outfit. Thank you, Klothink, for dressing our little fashionista.",
-  },
-];
+import { testimonials } from "@/lib/data";
 
 export default function Testimonials() {
   return (
     <>
-      <section className="testimonials w-full">
+      <section id="testimonials" className="testimonials w-full">
         <div className="flex flex-col gap-y-[60px]">
-          {/* Here the header default message start! */}
-          <div className="flex gap-x-[150px] max-xl:flex-col max-xl:gap-y-6">
+          {/* Header start */}
+          <div className="flex justify-between gap-x-[150px] max-xl:flex-col max-xl:gap-y-6">
             <div className="flex flex-col gap-y-5">
               <div className="flex h-[52px] max-md:h-fit max-md:flex-col max-md:gap-y-1">
                 <h1 className="text-[38px] font-semibold uppercase text-grey/10 max-md:order-2 max-md:text-[28px]">
-                  Customers Love.
+                  Our Customers Are Saying
                 </h1>
                 <span className="px-[10px] pt-1 text-sm font-semibold text-grey/60 max-md:order-1 max-md:px-0 max-md:pt-0">
                   Testimonials
@@ -40,21 +20,25 @@ export default function Testimonials() {
               </div>
               <div>
                 <p className="w-full max-w-6xl text-grey/40 max-md:text-sm">
-                  At Klothink, our customers are the heartbeat of our brand.
-                  Explore the heartfelt testimonials shared by those who have
-                  experienced the magic of Klothink fashion.
+                  At Nokuto, our customers share their love for our unique,
+                  high-quality fashion.
                 </p>
               </div>
             </div>
             <div className="flex items-center justify-center max-xl:justify-start">
-              <button className="rounded-[32px] bg-yellow/50 px-5 py-[14px]">
+              <button
+                className="rounded-[32px] bg-yellow/50 px-5 py-[14px] opacity-50 cursor-not-allowed"
+                disabled
+              >
                 <span className="whitespace-nowrap text-sm font-semibold">
-                  View All Testimonials
+                  Explore More Reviews
                 </span>
               </button>
             </div>
           </div>
-          {/* Here its end! */}
+          {/* Header end */}
+
+          {/* Testimonial Cards */}
           <div className="flex gap-x-5 rounded-2xl overflow-x-auto border border-white/97 bg-white/99 p-6 max-xl:p-5">
             {testimonials.map((testimonial, index) => (
               <div

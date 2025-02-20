@@ -31,7 +31,7 @@ export default function Products() {
 
   return (
     <>
-      <section className="products w-full">
+      <section id="popular-products" className="products w-full">
         <div className="flex flex-col gap-y-[60px]">
           <div className="flex gap-x-[150px] max-xl:flex-col max-xl:gap-y-6">
             <div className="flex flex-col gap-y-5">
@@ -53,13 +53,14 @@ export default function Products() {
               </div>
             </div>
             <div className="flex items-center justify-center max-xl:justify-start">
-              <button className="rounded-[32px] bg-yellow/50 px-5 py-[14px]">
-                <Link href={"/products"}>
-                  <span className="whitespace-nowrap text-sm font-semibold">
-                    View All Products
-                  </span>
-                </Link>
-              </button>
+              <Link
+                href={"/products"}
+                className="rounded-[32px] bg-yellow/50 px-5 py-[14px]"
+              >
+                <span className="whitespace-nowrap text-sm font-semibold">
+                  View All Products
+                </span>
+              </Link>
             </div>
           </div>
           <div>

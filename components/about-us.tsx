@@ -18,46 +18,47 @@ export default function AboutUs() {
     {
       id: 1,
       icon: <Star />,
-      title: "Passionate Craftsmanship",
+      title: "Innovative Vision",
       description:
-        "Every garment at Klothink is crafted with passion, reflecting our commitment to quality and innovation.",
+        "At Nokuto, we blend artistic vision with advanced techniques to push the boundaries of design and craftsmanship.",
     },
     {
       id: 2,
       icon: <Lifebuoy />,
-      title: "Fashion Forward",
+      title: "Bold Expressions",
       description:
-        "We're trendsetters, curating styles that empower and inspire confidence.",
+        "Our designs are bold, offering new ways to express individuality and personal style through every piece.",
     },
     {
       id: 3,
       icon: <Megaphone />,
-      title: "Customer-Centric Approach",
+      title: "Community Focused",
       description:
-        "At Klothink, our customers are at the heart of everything we do.",
+        "Nokuto thrives on building a community that shares a passion for fashion, sustainability, and empowerment.",
     },
     {
       id: 4,
       icon: <LightBulb />,
-      title: "Global Inspiration",
+      title: "Diverse Inspirations",
       description:
-        "Influenced by global trends, we bring you a diverse and dynamic collection.",
+        "Drawing inspiration from cultures around the world, Nokuto’s collection brings unique perspectives into every creation.",
     },
     {
       id: 5,
       icon: <Sparkles />,
-      title: "Empowering Your Style",
+      title: "Your Personal Statement",
       description:
-        "Beyond clothing, Klothink is a lifestyle. Join us on a journey of self-expression.",
+        "We believe clothing is a reflection of self. Nokuto is here to help you communicate your personality without saying a word.",
     },
     {
       id: 6,
       icon: <Sun />,
-      title: "Sustainable Practices",
+      title: "Eco-Conscious Values",
       description:
-        "Klothink is committed to sustainability, integrating eco-friendly practices into our production process.",
+        "Sustainability isn’t a choice; it’s a responsibility. Nokuto commits to eco-friendly practices, from materials to manufacturing.",
     },
   ];
+
   return (
     <>
       <section className="about-us">
@@ -66,7 +67,7 @@ export default function AboutUs() {
           <div className="flex flex-col gap-y-5">
             <div className="flex h-[52px] max-md:h-fit max-md:flex-col max-md:gap-y-1">
               <h1 className="text-[38px] font-semibold uppercase text-grey/10 max-md:order-2 max-md:text-[28px]">
-                The Klothink Experience.
+                The Nokuto Journey.
               </h1>
               <span className="px-[10px] pt-1 text-sm font-semibold text-grey/60 max-md:order-1 max-md:px-0 max-md:pt-0">
                 About Us
@@ -74,15 +75,15 @@ export default function AboutUs() {
             </div>
             <div>
               <p className="w-full max-w-6xl text-grey/40 max-md:text-sm">
-                At Klothink, we breathe life into fashion, blending creativity
-                with commitment. Our journey is fueled by a dedication to
-                delivering unparalleled style and quality. Join us in redefining
-                fashion and embracing a community where every purchase tells a
-                story.
+                At Nokuto, we are driven by a passion to redefine modern
+                fashion. Our journey is centered around sustainability,
+                craftsmanship, and delivering a collection that speaks to your
+                inner self. Join us as we create a new wave in the world of
+                style.
               </p>
             </div>
           </div>
-          {/* Here its end! */}
+          {/* Here it’s end! */}
           <div className="flex flex-col gap-y-5 rounded-2xl border border-white/97 bg-white/99 p-5">
             <div className="flex gap-x-5 max-xl:flex-col max-xl:gap-y-5">
               {aboutUsHighlights.slice(0, 3).map((highlight, index) => (
@@ -92,9 +93,9 @@ export default function AboutUs() {
                 >
                   <div className="flex flex-col gap-y-5 max-xl:gap-y-4">
                     <div className="flex gap-x-[10px]">
-                      <button className="flex h-12 w-12 items-center justify-center rounded-full bg-yellow/50">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-yellow/50">
                         {highlight.icon}
-                      </button>
+                      </div>
                       <span className="flex items-center justify-center text-lg font-medium text-grey/15 max-xl:text-base">
                         {highlight.title}
                       </span>
@@ -129,9 +130,9 @@ export default function AboutUs() {
                 >
                   <div className="flex flex-col gap-y-5 max-xl:gap-y-4">
                     <div className="flex gap-x-[10px]">
-                      <button className="flex h-12 w-12 items-center justify-center rounded-full bg-yellow/50">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-yellow/50">
                         {highlight.icon}
-                      </button>
+                      </div>
                       <span className="flex items-center justify-center text-lg font-medium text-grey/15 max-xl:text-base">
                         {highlight.title}
                       </span>

@@ -13,6 +13,22 @@ export type Product = {
     features: string[];
     slug: string;
   };
+
+  export type Question = {
+    title:string
+    category: string
+    description: string
+  }
+
+  export type Instruction = {
+    title: string
+    description: string
+  }
+
+  export type Testimonial = {
+    name: string, 
+    comment: string
+  }
   
   export const products: Product[] = [
       {
@@ -634,4 +650,115 @@ export type Product = {
         slug: "prettygarden-womens-summer-jumpsuits"
     }                          
   ];
-  
+
+
+export const questions: Question[] = [
+  {
+    title: "Can I modify my order after confirming it?",
+    category: "purchasing",
+    description:
+      "Absolutely! You can adjust your order within 24 hours by getting in touch with our customer care team.",
+  },
+  {
+    title: "How do I start a return process?",
+    category: "returns",
+    description:
+      "To return an item, please navigate to our Returns page and follow the step-by-step guide provided there.",
+  },
+  {
+    title: "How do I unsubscribe from the newsletter?",
+    category: "customer care",
+    description:
+      "To unsubscribe, simply click the 'Unsubscribe' link found at the bottom of any of our newsletter emails.",
+  },
+  {
+    title: "Do you accept exchanges for products?",
+    category: "customer care",
+    description:
+      "Yes, we offer exchanges for products within a 30-day window. For more details, please check our Exchanges page.",
+  },
+  {
+    title: "How do I make a purchase on Nokuto?",
+    category: "purchasing",
+    description:
+      "To make a purchase, just add items to your shopping cart and proceed to checkout. You can either log in or checkout as a guest.",
+  },
+  {
+    title: "What payment options are available?",
+    category: "customer care",
+    description:
+      "We accept several payment methods, including credit/debit cards, PayPal, and other secure online payment options.",
+  },
+  {
+    title: "How can I monitor my order status?",
+    category: "purchasing",
+    description:
+      "You can track your order by logging into your Nokuto account and going to the 'Order History' section.",
+  },
+  {
+    title: "What is your shipping procedure?",
+    category: "delivery",
+    description:
+      "We offer a variety of shipping methods. For full details, please visit our Shipping Information page.",
+  },
+  {
+    title: "Are there additional fees for returns?",
+    category: "returns",
+    description:
+      "No, there are no extra charges for returns, as long as you follow the instructions on our Returns page.",
+  },
+  {
+    title: "How can I create an account with Nokuto?",
+    category: "customer care",
+    description:
+      "To create an account, click on the 'Sign Up' button at the top right corner of our homepage and complete the registration form.",
+  },
+  {
+    title: "Is it possible to update my account details?",
+    category: "customer care",
+    description:
+      "Yes, you can update your account details at any time by logging into your profile and accessing 'Account Settings'.",
+  },
+  {
+    title: "Is my personal information safe with Nokuto?",
+    category: "customer care",
+    description:
+      "Absolutely! We prioritize the security of your personal information and use state-of-the-art measures to safeguard your data.",
+  },
+];
+
+export const instructions: Instruction[]  = [
+  {
+    title: "Explore New Styles",
+    description: "Browse through 1000+ exclusive fashion pieces.",
+  },
+  {
+    title: "Safe and Easy Checkout",
+    description: "Add items to your cart and enjoy secure checkout.",
+  },
+  {
+    title: "Fast Delivery",
+    description: "Enjoy fast dispatch with 95% same-day shipping.",
+  },
+  {
+    title: "Unwrap Joy",
+    description: "Receive your thoughtfully packaged Nokuto order.",
+  },
+];
+
+export const testimonials: Testimonial[] = [
+  {
+    name: "Ava Thompson",
+    comment:
+      "Nokuto exceeded my expectations! The dress was stunning and arrived quickly.",
+  },
+  {
+    name: "Ethan Williams",
+    comment: "The jacket is perfect! Stylish, warm, and ideal for any weather.",
+  },
+  {
+    name: "Sophia Lee",
+    comment:
+      "My daughter loves her new outfit from Nokuto. It's cute, comfy, and great quality.",
+  },
+];

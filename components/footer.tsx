@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Facebook from "./icons/brands/facebook";
 import Linkedin from "./icons/brands/linkedin";
 import Twitter from "./icons/brands/twitter";
@@ -10,7 +11,9 @@ export default function Footer() {
         <div className="flex gap-x-20 border-b border-t border-white/95 px-20 max-xl:flex-col max-xl:gap-y-[30px] max-xl:px-4 max-xl:pt-[30px]">
           <div className="flex w-full flex-col items-start justify-center gap-y-6">
             <div className="flex max-xl:w-full max-xl:items-center max-xl:justify-between">
-              <Logo className="h-[60px] w-[60px]" />
+              <Link href={"/"}>
+                <Logo className="h-[60px] w-[60px]" />
+              </Link>
               <div className="hidden gap-x-4 max-xl:flex">
                 <button className="flex h-9 w-9 items-center justify-center rounded-full bg-grey/15 text-white">
                   <Facebook />
@@ -54,29 +57,35 @@ export default function Footer() {
             </div>
             <div className="flex gap-x-[50px] max-xl:hidden">
               <ul className="flex w-48 flex-col gap-y-9">
-                <li>
+                <Link href={"/"}>
                   <span className="text-lg font-medium">Home</span>
-                </li>
+                </Link>
                 <div>
                   <ul className="flex flex-col gap-y-[18px]">
-                    <li>
-                      <span className="cursor-pointer text-grey/40">
-                        Features
-                      </span>
-                    </li>
-                    <li>
-                      <span className="cursor-pointer text-grey/40">
-                        Popular Products
-                      </span>
-                    </li>
-                    <li>
-                      <span className="cursor-pointer text-grey/40">
-                        Testimonials
-                      </span>
-                    </li>
-                    <li>
-                      <span className="cursor-pointer text-grey/40">FAQ</span>
-                    </li>
+                    {[
+                      "Features",
+                      "Popular Products",
+                      "Testimonials",
+                      "FAQ",
+                    ].map((link, index) => {
+                      return (
+                        <Link
+                          key={index}
+                          href={`/#${
+                            [
+                              "features",
+                              "popular-products",
+                              "testimonials",
+                              "faq",
+                            ][index]
+                          }`}
+                        >
+                          <span className="cursor-pointer text-grey/40">
+                            {link}
+                          </span>
+                        </Link>
+                      );
+                    })}
                   </ul>
                 </div>
               </ul>
@@ -169,13 +178,13 @@ export default function Footer() {
             </button>
           </div>
           <div className="flex gap-x-4 max-xl:hidden">
-            <button className="flex h-9 w-9 items-center justify-center rounded-full bg-grey/15 text-white">
+            <button className="flex h-9 w-9 items-center justify-center rounded-full bg-grey/15 text-white opacity-50 cursor-not-allowed">
               <Facebook />
             </button>
-            <button className="flex h-9 w-9 items-center justify-center rounded-full bg-grey/15 pt-0.5 text-white">
+            <button className="flex h-9 w-9 items-center justify-center rounded-full bg-grey/15 pt-0.5 text-white opacity-50 cursor-not-allowed">
               <Twitter />
             </button>
-            <button className="flex h-9 w-9 items-center justify-center rounded-full bg-grey/15 text-white">
+            <button className="flex h-9 w-9 items-center justify-center rounded-full bg-grey/15 text-white opacity-50 cursor-not-allowed">
               <Linkedin />
             </button>
           </div>
