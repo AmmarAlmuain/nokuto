@@ -16,42 +16,36 @@ export default function AboutUs() {
   };
   const aboutUsHighlights = [
     {
-      id: 1,
       icon: <Star />,
       title: "Innovative Vision",
       description:
         "At Nokuto, we blend artistic vision with advanced techniques to push the boundaries of design and craftsmanship.",
     },
     {
-      id: 2,
       icon: <Lifebuoy />,
       title: "Bold Expressions",
       description:
         "Our designs are bold, offering new ways to express individuality and personal style through every piece.",
     },
     {
-      id: 3,
       icon: <Megaphone />,
       title: "Community Focused",
       description:
         "Nokuto thrives on building a community that shares a passion for fashion, sustainability, and empowerment.",
     },
     {
-      id: 4,
       icon: <LightBulb />,
       title: "Diverse Inspirations",
       description:
         "Drawing inspiration from cultures around the world, Nokuto’s collection brings unique perspectives into every creation.",
     },
     {
-      id: 5,
       icon: <Sparkles />,
       title: "Your Personal Statement",
       description:
         "We believe clothing is a reflection of self. Nokuto is here to help you communicate your personality without saying a word.",
     },
     {
-      id: 6,
       icon: <Sun />,
       title: "Eco-Conscious Values",
       description:

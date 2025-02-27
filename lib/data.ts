@@ -11,6 +11,7 @@ export type Product = {
     sizes: string[];
     shippingInfo: string[];
     features: string[];
+    reviews: {name: string, comment: string}[]
     slug: string;
   };
 
@@ -30,625 +31,719 @@ export type Product = {
     comment: string
   }
   
+  export type Review = {
+    name: string, 
+    comment: string
+  }
+  
   export const products: Product[] = [
-      {
-        category: "Kids",
-        subcategory: "Casual",
-        availability: "In Stock",
-        name: "Disney Frozen Elsa Anna Toddler Girl Dress",
-        price: "$19.99",
-        images: [
-          "https://m.media-amazon.com/images/I/71rvbt7cGoL._AC_SL1500_.jpg",
-          "https://m.media-amazon.com/images/I/71K-0WrwUgL._AC_SL1500_.jpg"
-        ],
-        material: "Polyester, spandex, acetate",
-        fit: "A Line",
-        colors: ["Dark Blue-frozen", "Purple-elsa", "White-elsa", "Blue-elsa"],
-        sizes: ["S", "M", "L", "XL"],
-        shippingInfo: [
-          "FREE delivery Friday, February 21 on orders shipped by Amazon over $35 Or Prime members get FREE delivery Tuesday, February 18"
-        ],
-        features: ["Bowknot Tulle Lace", "Long-Sleeve", "Crew Neck", "Imported"],
-        slug: "disney-frozen-elsa-anna-toddler-girl-dress"
-      },
-      {
-        category: "Kids",
-        subcategory: "Casual",
-        availability: "In Stock",
-        name: "LOKTARC Boys Camo Pants",
-        price: "$28.98",
-        images: [
-          "https://m.media-amazon.com/images/I/61x-42v3mRL._AC_SL1005_.jpg",
-          "https://m.media-amazon.com/images/I/61B31HJt9QL._AC_SL1005_.jpg"
-        ],
-        material: "97% Cotton, 3% Spandex",
-        fit: "Regular Fit",
-        colors: [
-          "Army Green", "Green", "Black", "Grey", "Grey (Regular Fit)", "Khaki", "Navy"
-        ],
-        sizes: ["S", "M", "L", "XL"],
-        shippingInfo: [
-          "FREE delivery Friday, February 21 on orders shipped by Amazon over $35 Or Prime members get FREE delivery Tuesday, February 18"
-        ],
-        features: ["Drawstring Closure", "Machine Wash", "Imported"],
-        slug: "loktarc-boys-camo-pants"
-      },
-      {
-        category: "Kids",
-        subcategory: "Casual",
-        availability: "In Stock",
-        name: "2Pcs Kids Boys Flannel Plaid Shirt Tops Pants Set Hoodie Sweatsuit",
-        price: "$29.89",
-        images: [
-          "https://m.media-amazon.com/images/I/71ZIIDgg41L._AC_SL1500_.jpg",
-          "https://m.media-amazon.com/images/I/71JfTZCOslL._AC_SL1500_.jpg"
-        ],
-        material: "Polyester/cotton",
-        fit: "Regular Fit",
-        colors: ["Black", "Yellow", "Blue", "Red"],
-        sizes: ["S", "M", "L", "XL"],
-        shippingInfo: [
-          "FREE delivery Friday, February 21 on orders shipped by Amazon over $35 Or fastest delivery Thursday, February 20"
-        ],
-        features: ["Machine Wash", "Hand Wash Only", "Imported"],
-        slug: "2pcs-kids-boys-flannel-plaid-shirt-tops-pants-set-hoodie-sweatsuit"
-      },
-      {
-        category: "Kids",
-        subcategory: "Casual",
-        availability: "In Stock",
-        name: "Boys Clothes Shorts Sets Plaid Short Sleeve Hooded Button Shirt and Jogger Shorts",
-        price: "$24.89",
-        images: [
-          "https://m.media-amazon.com/images/I/71kgbGPdR2L._AC_SL1500_.jpg",
-          "https://m.media-amazon.com/images/I/71ASknkrX5L._AC_SL1500_.jpg"
-        ],
-        material: "Polyester/cotton",
-        fit: "Regular Fit",
-        colors: ["Green", "Red", "Yellow", "Black", "Blue"],
-        sizes: ["S", "M", "L", "XL"],
-        shippingInfo: [
-          "FREE delivery Friday, February 21 on orders shipped by Amazon over $35 Or Prime members get FREE delivery Tomorrow, February 17"
-        ],
-        features: ["Machine Wash", "Hand Wash Only", "Imported"],
-        slug: "boys-clothes-shorts-sets-plaid-short-sleeve-hooded-button-shirt-and-jogger-shorts"
-      },
-      {
-        category: "Kids",
-        subcategory: "Casual",
-        availability: "In Stock",
-        name: "PATPAT Little Toddler Girls Clothes Butterfly Sleeveless Dress Top and Floral Print Short Set",
-        price: "$19.99",
-        images: [
-          "https://m.media-amazon.com/images/I/71hz7W-AZAL._AC_SL1500_.jpg"
-        ],
-        material: "Polyester/cotton",
-        fit: "Regular Fit",
-        colors: ["Butterfly/Floral"],
-        sizes: ["S", "M", "L", "XL"],
-        shippingInfo: [
-          "FREE delivery Friday, February 21 on orders shipped by Amazon over $35 Or Prime members get FREE delivery Tomorrow, February 17"
-        ],
-        features: ["Sleeveless", "Machine Wash", "Imported"],
-        slug: "patpat-little-toddler-girls-clothes-butterfly-sleeveless-dress-top-and-floral-print-short-set"
-    },    
+    // Mens Formal
     {
-        category: "Kids",
-        subcategory: "Formal",
-        availability: "Available",
-        name: "IZOD Boys' 4-Piece Set with Collared Dress Shirt, Tie, Vest, and Pants",
-        price: "$9.99",
-        images: [
-          "https://m.media-amazon.com/images/I/61yxz1UBmTL._AC_SL1500_.jpg",
-          "https://m.media-amazon.com/images/I/61huLEvFgaL._AC_SL1500_.jpg"
-        ],
-        material: "Vest: 100% Cotton; Shirt: 55% Cotton, 45% Polyester; Pants: 100% Cotton; Tie: 100% Polyester",
-        fit: "Regular Fit",
-        colors: [
-          "English Blue", "Black/Red", "Medium Blue", "Medium Blue/Grey", "Tanzanite",
-          "Blue Seersucker", "Green Ash", "Light Khaki", "Blue/Yellow", "Plaid Blue"
-        ],
-        sizes: ["S", "M", "L", "XL"],
-        shippingInfo: ["Delivery date not specified"],
-        features: ["Machine Wash", "Imported"],
-        slug: "izod-boys-4-piece-set-with-collared-dress-shirt-tie-vest-and-pants"
-      },
-      {
-        category: "Kids",
-        subcategory: "Formal",
-        availability: "In Stock",
-        name: "A&J DESIGN 5pcs Toddler Baby Boys Suit Set",
-        price: "$40.99",
-        images: [
-          "https://m.media-amazon.com/images/I/71-Wo7mpLkL._AC_SL1500_.jpg"
-        ],
-        material: "Cotton blend",
-        fit: "Regular Fit",
-        colors: ["White", "Grey", "Black"],
-        sizes: ["S", "M", "L", "XL"],
-        shippingInfo: [
-          "FREE delivery Friday, February 21 Or Prime members get FREE delivery Tomorrow, February 17"
-        ],
-        features: ["Machine Wash", "Imported"],
-        slug: "aj-design-5pcs-toddler-baby-boys-suit-set"
-      },
-      {
-        category: "Kids",
-        subcategory: "Formal",
-        availability: "In Stock",
-        name: "Nautica Boys 4 piece Formal Suit Set, Vest, Pants, Collared Dress Shirt, and Tie",
-        price: "$35.99",
-        images: [
-          "https://m.media-amazon.com/images/I/71vmvEs95NL._AC_SL1500_.jpg",
-          "https://m.media-amazon.com/images/I/61244Yvg2AL._AC_SL1500_.jpg"
-        ],
-        material: "Shirt: 60% Cotton, 40% Polyester; Pant: 84% Polyester, 16% Rayon; Tie: 100% Polyester",
-        fit: "Regular Fit",
-        colors: ["Light Grey Deco Sharkskin", "Bright Blue", "Khaki/Navy", "Light Gray"],
-        sizes: ["S", "M", "L", "XL"],
-        shippingInfo: [
-          "FREE delivery Friday, February 21 Or Prime members get FREE delivery Tomorrow, February 17"
-        ],
-        features: ["Machine Wash", "Imported"],
-        slug: "nautica-boys-4-piece-formal-suit-set"
-      },
-      {
-        category: "Kids",
-        subcategory: "Formal",
-        availability: "Only 2 left in stock - order soon.",
-        name: "Boys Slim Fit Suit Tuxedo for Boy Check Plaid 3 Piece Suit Set",
-        price: "$71.99",
-        images: [
-          "https://m.media-amazon.com/images/I/71rk0NKht9L._AC_SL1500_.jpg",
-          "https://m.media-amazon.com/images/I/71FBPz+dQML._AC_SL1500_.jpg",
-          "https://m.media-amazon.com/images/I/71qd67j188L._AC_SL1500_.jpg"
-        ],
-        material: "Polyester Blend",
-        fit: "Slim Fit",
-        colors: [
-          "Black", "Blue", "Fuchsia Plaid", "Green Plaid", "Grey", "Light Grey",
-          "Royal Blue Plaid", "Yellow"
-        ],
-        sizes: ["S", "M", "L", "XL"],
-        shippingInfo: [
-          "FREE delivery Friday, February 21 Or Prime members get FREE delivery Tuesday, February 18"
-        ],
-        features: ["Dry Clean Only", "Imported"],
-        slug: "boys-slim-fit-suit-tuxedo-for-boy-check-plaid-3-piece-suit-set"
-      },
-      {
-        category: "Kids",
-        subcategory: "Formal",
-        availability: "Only 5 left in stock - order soon.",
-        name: "Volunboy Boys Clothes Set Toddler Gentlemen Wedding Suit Long Sleeve Bowtie Formal Dress Shirts Suspenders Pants Outfits",
-        price: "$32.99",
-        images: [
-          "https://m.media-amazon.com/images/I/81y1p2+YDzL._AC_SL1500_.jpg"
-        ],
-        material: "95% cotton and 5% spandex",
-        fit: "Regular Fit",
-        colors: [
-          "Bluewhite", "Green", "Purple", "Blue Grey", "Deep Green", "Beige", "Black"
-        ],
-        sizes: ["S", "M", "L", "XL"],
-        shippingInfo: [
-          "FREE delivery Friday, February 21 on orders shipped by Amazon over $35 Or Prime members get FREE delivery Wednesday, February 19"
-        ],
-        features: ["Machine Wash", "Imported"],
-        slug: "volunboy-boys-clothes-set-toddler-gentlemen-wedding-suit"
+      category: "Mens",
+      subcategory: "Formal",
+      availability: "In Stock",
+      name: "DiBanGu Men's Formal Long Sleeve Button Down Shirts",
+      price: "$30.99",
+      images: [
+        "https://m.media-amazon.com/images/I/61-CqaHdhKL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/61SULEfAV4L._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/611I6bQv9VL._AC_SL1500_.jpg"
+      ],
+      material: "Cotton, Polyester, Spandex",
+      fit: "Regular Fit",
+      colors: ["yellow", "orange", "purple"],
+      sizes: ["M", "L", "XL"],
+      shippingInfo: [
+        "Free delivery Sunday, March 2 on orders shipped by Amazon over $35 Or Prime members get free delivery Tomorrow, February 26. Order within 4 hrs 29 mins.",
+        "Expedited shipping available. Delivered by Friday, February 28.",
+        "Standard shipping takes 3-5 business days. Free for orders over $50."
+      ],
+      features: [
+        "Long sleeve dress shirt with Formal button-down design.",
+        "Regular fit, providing a comfortable and flattering silhouette.",
+        "Made from a blend of cotton, polyester, and spandex for breathability and stretch.",
+        "Inner contrast design adds a unique and stylish touch.",
+        "Suitable for business meetings, parties, or Formal outings.",
+        "Machine washable and easy to maintain.",
+      ],
+      reviews: [
+        {
+          name: "Kirito Kawakagi",
+          comment: "Great shirt, very comfortable and stylish. Perfect for my Formal outings."
+        },
+        {
+          name: "Carlos Martinez",
+          comment: "The shirt fits well and looks great. Good value for the price."
+        },
+        {
+          name: "Sophia Müller",
+          comment: "Elegant shirt with a perfect fit. Highly recommend for any Formal occasion."
+        }
+      ],
+      slug: "dibangu-mens-dress-shirt-long-sleeve"
     },
     {
-        category: "Kids",
-        subcategory: "Sport",
-        availability: "In Stock",
-        name: "New Balance Girls' Jogger Set - 2 Piece Pullover Fleece Hoodie Sweatshirt and Jogger Sweatpants",
-        price: "$32.99",
-        images: [
-          "https://m.media-amazon.com/images/I/61HgN4Q4DgL._AC_SL1500_.jpg",
-          "https://m.media-amazon.com/images/I/81yTXBCMiaL._AC_SL1500_.jpg"
-        ],
-        material: "60% Cotton, 40% Polyester",
-        fit: "Regular Fit",
-        colors: [
-          "Clay Ash", "Pine", "Real Pink", "Dark Grey/Dark Grey", "Rick Oak",
-          "Shadow Black", "Team Grey", "Ice Wine Black", "Rose"
-        ],
-        sizes: ["S", "M", "L", "XL"],
-        shippingInfo: [
-          "FREE delivery Friday, February 21 on orders shipped by Amazon over $35 Or Prime members get FREE delivery Tomorrow, February 17"
-        ],
-        features: ["Machine Wash", "Imported"],
-        slug: "new-balance-girls-jogger-set"
-      },
-      {
-        category: "Kids",
-        subcategory: "Sport",
-        availability: "In Stock",
-        name: "Reebok Girls' Active Leggings Set - 3 Piece Performance T-Shirt and Yoga Pants Leggings",
-        price: "$24.99",
-        images: [
-          "https://m.media-amazon.com/images/I/719bdGlAR0L._AC_SL1500_.jpg"
-        ],
-        material: "Shirt/Sweater: 60% Cotton, 40% Polyester; Bottoms: 90% Cotton, 5% Polyester, 5% Elastane",
-        fit: "Regular Fit",
-        colors: [
-          "Black/Purple/Grey", "Blue/Peach/White", "Grey/Pink/White",
-          "Black", "Crystal Blue", "Lavender", "Light Grey Heather",
-          "Peach", "Pink"
-        ],
-        sizes: ["S", "M", "L", "XL"],
-        shippingInfo: [
-          "FREE delivery Friday, February 21 on orders shipped by Amazon over $35 Or Prime members get FREE delivery Wednesday, February 19"
-        ],
-        features: ["Machine Wash", "Imported"],
-        slug: "reebok-girls-active-leggings-set"
-      },
-      {
-        category: "Kids",
-        subcategory: "Sport",
-        availability: "In Stock",
-        name: "Hilinker Girls Long Sleeve 3 Piece Outfits Graphic Crop Tee and Cami Top with Pants Set",
-        price: "$29.99",
-        images: [
-          "https://m.media-amazon.com/images/I/61dfdaAHl3L._AC_SL1500_.jpg",
-          "https://m.media-amazon.com/images/I/61Si8lutJEL._AC_SL1500_.jpg"
-        ],
-        material: "95% Polyester, 5% Spandex",
-        fit: "Regular Fit",
-        colors: ["Black Smile", "Blue Smile", "Green Smile", "Pink Smile"],
-        sizes: ["S", "M", "L", "XL"],
-        shippingInfo: [
-          "FREE delivery Friday, February 21 on orders shipped by Amazon over $35 Or Prime members get FREE delivery Tomorrow, February 17"
-        ],
-        features: ["Machine Wash", "Imported"],
-        slug: "hilinker-girls-long-sleeve-3-piece-outfits"
-      },
-      {
-        category: "Kids",
-        subcategory: "Sport",
-        availability: "In Stock",
-        name: "Fila Girls' Active Leggings Set - 3 Piece Performance T-Shirt, Yoga Pants, and Bike Shorts",
-        price: "$9.99",
-        images: [
-          "https://m.media-amazon.com/images/I/714lRLPjBFL._AC_SL1500_.jpg",
-          "https://m.media-amazon.com/images/I/71CWQ1IIq2L._AC_SL1500_.jpg",
-          "https://m.media-amazon.com/images/I/71pgrYdXxIL._AC_SL1500_.jpg",
-          "https://m.media-amazon.com/images/I/618qXyTCxiL._AC_SL1500_.jpg"
-        ],
-        material: "Legging/Short: 95% Cotton, 5% Elastane; Shirt: 100% Cotton",
-        fit: "Regular Fit",
-        colors: [
-          "Aquarius/Pink", "Coral Pink/Navy", "Lavander/Grey", "Pink Glow/Black"
-        ],
-        sizes: ["S", "M", "L", "XL"],
-        shippingInfo: [
-          "FREE delivery Friday, February 21 on orders shipped by Amazon over $35 Or Prime members get FREE delivery Tomorrow, February 17"
-        ],
-        features: ["Machine Wash", "Imported"],
-        slug: "fila-girls-active-leggings-set"
+      category: "Mens",
+      subcategory: "Formal",
+      availability: "In Stock",
+      name: "Barry.Wang Men Flower Vest Paisley Silk Ties Set",
+      price: "$27.99",
+      images: [
+        "https://m.media-amazon.com/images/I/81HbtTAkSaL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/81xi-OzfMGL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/91t7PCG2jvL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/81B9lFFy2SL._AC_SL1500_.jpg"
+      ],
+      material: "70% Silk, 30% Polyester",
+      fit: "Regular Fit",
+      colors: ["sky", "emerald", "violet", "red"],
+      sizes: ["M", "L", "XL"],
+      shippingInfo: [
+        "Free delivery Sunday, March 2 on orders shipped by Amazon over $35 Or Prime members get free delivery Tomorrow, February 26. Order within 13 hrs 38 mins.",
+        "Expedited shipping available. Delivered by Friday, February 28.",
+        "Standard shipping takes 3-5 business days. Free for orders over $50."
+      ],
+      features: [
+        "Formal vest set includes paisley jacquard silk ties and waistcoat.",
+        "Made from a blend of 70% silk and 30% polyester for a luxurious feel.",
+        "Regular fit design suitable for weddings and formal events.",
+        "Beautiful flower pattern adds a touch of elegance.",
+        "Available in multiple colors to suit various preferences.",
+        "Easy to maintain with specified care instructions.",
+      ],
+      reviews: [
+        {
+          name: "Ryoichi Tanaka",
+          comment: "The vest is absolutely stunning. The silk feels luxurious and the pattern is elegant."
+        },
+        {
+          name: "Diego Ramirez",
+          comment: "Good quality and value for the price. The colors are vibrant and the fit is perfect."
+        },
+        {
+          name: "Emma Schmidt",
+          comment: "Beautiful vest set, perfect for formal occasions. Highly recommend."
+        }
+      ],
+      slug: "barry-wang-formal-men-flower-vest-set"
+    }, 
+    {
+      category: "Mens",
+      subcategory: "Formal",
+      availability: "In Stock",
+      name: "DiBanGu Mens Silk Paisley Dress Shirts",
+      price: "$39.99",
+      images: [
+        "https://m.media-amazon.com/images/I/81Qd17vzEnL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/81CiDVkop+L._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/81DxxdeWQ3L._AC_SL1500_.jpg"
+      ],
+      material: "Silk, Polyester",
+      fit: "Regular Fit",
+      colors: ["amber", "blue", "emerald", "violet"],
+      sizes: ["M", "L", "XL"],
+      shippingInfo: [
+        "Free delivery Sunday, March 2 Or Prime members get free delivery Tomorrow, February 26. Order within 13 hrs 33 mins.",
+        "Expedited shipping available. Delivered by Friday, February 28.",
+        "Standard shipping takes 3-5 business days. Free for orders over $50."
+      ],
+      features: [
+        "Long sleeve dress shirt with paisley pattern and button-down design.",
+        "Regular fit providing a comfortable and flattering silhouette.",
+        "Made from a blend of silk and polyester for breathability and softness.",
+        "Perfect for weddings, parties, and various formal occasions.",
+        "Machine washable and hand wash only care instructions.",
+        "Imported quality from a reputable manufacturer.",
+      ],
+      reviews: [
+        {
+          name: "Hiroshi Nakamura",
+          comment: "Excellent quality shirt. The fabric feels luxurious and the fit is perfect."
+        },
+        {
+          name: "Mateo Hernandez",
+          comment: "Great shirt for both formal and casual occasions. The paisley pattern is unique."
+        },
+        {
+          name: "Anastasia Ivanova",
+          comment: "Beautiful shirt with a comfortable fit. Highly recommend for any special event."
+        }
+      ],
+      slug: "dibangu-mens-silk-paisley-dress-shirts"
     },    
     {
-        category: "Mens",
-        subcategory: "Casual",
-        availability: "Only 3 left in stock - order soon.",
-        name: "MAGCOMSEN Men's Polo Shirts Short Sleeve Dry Fit Golf Shirts Moisture Wicking Performance Athletic Casual Collared Shirt",
-        price: "$24.98",
-        images: [
-          "https://m.media-amazon.com/images/I/31blYvFNvHL.jpg"
-        ],
-        material: "77% Nylon, 23% Spandex",
-        fit: "Regular Fit",
-        colors: [
-          "Army Green", "Black", "Dark Grey", "Light Grey",
-          "Navy", "Sky Blue", "White", "Wine Red"
-        ],
-        sizes: ["S", "M", "L", "XL"],
-        shippingInfo: [
-          "FREE delivery Saturday, February 22 on orders shipped by Amazon over $35 Or Prime members get FREE delivery Thursday, February 20. Order within 11 hrs 5 mins. Join Prime"
-        ],
-        features: ["Machine Wash", "Imported"],
-        slug: "magcomsen-mens-polo-shirts"
-      },
-      {
-        category: "Mens",
-        subcategory: "Casual",
-        availability: "In Stock",
-        name: "Mylldey Mens Casual Full Zip Cardigan Sweaters Cable Knit Jacket Sweater Men, US Size",
-        price: "$25.99",
-        images: [
-          "https://m.media-amazon.com/images/I/71orZQrSO7L._AC_SL1500_.jpg",
-          "https://m.media-amazon.com/images/I/71q9UaQa9AL._AC_SL1500_.jpg",
-          "https://m.media-amazon.com/images/I/71ArqhB7CjL._AC_SL1500_.jpg"
-        ],
-        material: "100% Polyester",
-        fit: "Regular Fit",
-        colors: ["Black", "Darkgrey", "Navy", "Off-white"],
-        sizes: ["S", "M", "L", "XL"],
-        shippingInfo: [
-          "FREE delivery Saturday, February 22 on orders shipped by Amazon over $35 Or Prime members get FREE delivery Thursday, February 20. Order within 10 hrs 55 mins. Join Prime"
-        ],
-        features: ["Machine Wash", "Hand Wash", "Imported"],
-        slug: "mylldey-mens-casual-full-zip-cardigan-sweaters"
-      },
-      {
-        category: "Mens",
-        subcategory: "Casual",
-        availability: "In Stock",
-        name: "MAGCOMSEN Men's Sweaters 1/4 Zip Cotton Sweater Pullover Polo Sweaters Striped Fall Winter Warm Sweatshirts",
-        price: "$39.98",
-        images: [
-          "https://m.media-amazon.com/images/I/81tWHgjfTlL._AC_SL1500_.jpg"
-        ],
-        material: "100% Cotton",
-        fit: "Regular Fit",
-        colors: [
-          "Black", "Dark Grey", "Dark Grey Black", "Light Grey",
-          "Navy Lack Blue", "Navy Light Grey", "Navy Wine Red",
-          "Wine Red", "Dark Black"
-        ],
-        sizes: ["S", "M", "L", "XL"],
-        shippingInfo: [
-          "FREE delivery Saturday, February 22 Or Prime members get FREE delivery Tomorrow, February 18. Order within 2 hrs 22 mins. Join Prime"
-        ],
-        features: ["Machine Wash", "Imported"],
-        slug: "magcomsen-mens-sweaters-1-4-zip-cotton"
-      },
-      {
-        category: "Mens",
-        subcategory: "Casual",
-        availability: "Only 2 left in stock - order soon.",
-        name: "Boladeci Men's Sweaters Quarter Zip Pullover Premium Cotton Comfort Mock Neck Striped Fall Winter Fashion Thermal Sweaters",
-        price: "$39.98",
-        images: [
-          "https://m.media-amazon.com/images/I/81d8Qc8wJDL._AC_SL1500_.jpg"
-        ],
-        material: "100% Cotton",
-        fit: "Regular Fit",
-        colors: [
-          "Black Light Grey", "Dark Grey", "Light Grey",
-          "Navy Blue Lake Blue", "Navy Blue Light Grey",
-          "Navy Blue Wine Red", "Wine Red Black", "Black"
-        ],
-        sizes: ["S", "M", "L", "XL"],
-        shippingInfo: [
-          "FREE delivery Saturday, February 22 Or fastest delivery Friday, February 21. Order within 10 hrs 51 mins"
-        ],
-        features: ["Hand Wash Only", "Imported"],
-        slug: "boladeci-mens-sweaters-quarter-zip-pullover"
-      },
-      {
-        category: "Mens",
-        subcategory: "Casual",
-        availability: "In stock (Usually ships within 4 to 5 days.)",
-        name: "TACVASEN Mens Sweater Quarter Zip Pullover Cotton Long Sleeve Sweaters Striped Casual Pullovers Fall Winter Sweatshirt",
-        price: "$39.99",
-        images: [
-          "https://m.media-amazon.com/images/I/81FjqXralRL._AC_SL1500_.jpg"
-        ],
-        material: "100% Cotton",
-        fit: "Regular Fit",
-        colors: [
-          "Black", "Dark Grey", "Dark Grey Black",
-          "Light Grey", "Navy Lack Blue", "Navy Light Grey",
-          "Navy Wine Red", "Wine Red"
-        ],
-        sizes: ["S", "M", "L", "XL"],
-        shippingInfo: [
-          "$1.99 delivery March 4 - 17. Details"
-        ],
-        features: ["Machine Wash", "Imported"],
-        slug: "tacvasen-mens-sweater-quarter-zip-pullover"
+      category: "Mens",
+      subcategory: "Formal",
+      availability: "In Stock",
+      name: "Bruno Marc Men's Patent Tuxedo Dress Shoes Lace-up",
+      price: "$42.99",
+      images: [
+        "https://m.media-amazon.com/images/I/71ICSbn0pEL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71Slj3qucIL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71O8AgQVpoL._AC_SL1500_.jpg"
+      ],
+      material: "Patent Leather",
+      fit: "Regular Fit",
+      colors: ["zinc", "stone"],
+      sizes: ["8", "9", "10", "11"],
+      shippingInfo: [
+        "Free delivery Sunday, March 2 Or Prime members get free delivery Tomorrow, February 26. Order within 10 hrs 30 mins.",
+        "Expedited shipping available. Delivered by Friday, February 28.",
+        "Standard shipping takes 3-5 business days. Free for orders over $50."
+      ],
+      features: [
+        "Classic lace-up design for a secure fit.",
+        "Patent leather upper for a sleek and polished look.",
+        "Perfect for formal occasions such as weddings and parties.",
+        "Comfortable and cushioned insole for all-day wear.",
+        "Non-slip outsole provides excellent traction.",
+        "Imported quality from a reputable manufacturer."
+      ],
+      reviews: [
+        {
+          name: "Takahiro Sato",
+          comment: "Excellent dress shoes for formal events. Comfortable and stylish."
+        },
+        {
+          name: "Juan Perez",
+          comment: "Great quality and fit. Perfect for my wedding day."
+        },
+        {
+          name: "Emily Watson",
+          comment: "These shoes look fantastic and feel great. Highly recommend."
+        }
+      ],
+      slug: "bruno-marc-mens-patent-tuxedo-dress-shoes"
+    },   
+    {
+      category: "Mens",
+      subcategory: "Formal",
+      availability: "In Stock",
+      name: "Founders & C Mens Leather Ratchet Click Belt 2 Pack",
+      price: "$31.99",
+      images: [
+        "https://m.media-amazon.com/images/I/61giwHvtjiL._AC_SL1001_.jpg",
+        "https://m.media-amazon.com/images/I/61j3QwQPNgL._AC_SL1001_.jpg",
+      ],
+      material: "100% Leather",
+      fit: "Size Adjustable",
+      colors: ["brown", "zinc"],
+      sizes: ["D"],
+      shippingInfo: [
+        "Free delivery Sunday, March 2 on orders shipped by Amazon over $35 Or Prime members get free delivery Tomorrow, February 26. Order within 3 hrs 59 mins.",
+        "Expedited shipping available. Delivered by Friday, February 28.",
+        "Standard shipping takes 3-5 business days. Free for orders over $50."
+      ],
+      features: [
+        "2 pack of leather ratchet click belts with slide buckle.",
+        "Made from 100% high-quality leather for durability.",
+        "Adjustable size to provide a perfect fit for all.",
+        "Comes in a gift set box, ideal for gifting.",
+        "Stylish design suitable for both formal and casual occasions.",
+      ],
+      reviews: [
+        {
+          name: "Takashi Yamamoto",
+          comment: "Excellent belts. The quality is top-notch and the buckle design is great."
+        },
+        {
+          name: "Luis Fernandez",
+          comment: "Very well-made belts. The leather is thick and the ratchet system works perfectly."
+        },
+        {
+          name: "Isabella Rossi",
+          comment: "Great value for money. The belts are stylish and easy to adjust."
+        }
+      ],
+      slug: "founders-c-mens-belt-2-pack-leather-ratchet-click-belt"
+    },    
+    // Mens Casual        
+    {
+      category: "Mens",
+      subcategory: "Casual",
+      availability: "In Stock",
+      name: "ZITY Men's Flannel Hoodie Shirts Long Sleeve Plaid",
+      price: "$23.66",
+      images: [
+        "https://m.media-amazon.com/images/I/71qcdS6L8bL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71V9RF+mheL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71YZ7nl0mFL._AC_SL1500_.jpg",
+      ],
+      material: "Flannel",
+      fit: "Regular Fit",
+      colors: ["red", "blue", "green", "yellow"],
+      sizes: ["M", "L", "XL"],
+      shippingInfo: [
+        "Free delivery Sunday, March 2 on orders shipped by Amazon over $35 Or Prime members get free delivery Tomorrow, February 26. Order within 3 hrs 59 mins.",
+        "Expedited shipping available. Delivered by Friday, February 28.",
+        "Standard shipping takes 3-5 business days. Free for orders over $50."
+      ],
+      features: [
+        "Stylish hooded flannel shirt with long sleeves and button-down design.",
+        "Made from high-quality flannel fabric for warmth and comfort.",
+        "Regular fit suitable for casual outings and everyday wear.",
+        "Features a plaid pattern and a convenient front pocket.",
+        "Available in multiple colors to suit various preferences.",
+        "Machine washable for easy care and maintenance.",
+        "Durable stitching and construction for long-lasting wear.",
+        "Perfect for layering or wearing on its own.",
+        "Comfortable and cozy, ideal for cooler weather."
+      ],
+      reviews: [
+        {
+          name: "Hiroshi Nakamura",
+          comment: "Great quality flannel shirt. Comfortable and stylish, perfect for casual wear."
+        },
+        {
+          name: "Mateo Garcia",
+          comment: "Excellent fit and fabric. The hood adds a nice touch."
+        },
+        {
+          name: "Anastasia Ivanova",
+          comment: "Beautiful shirt with a comfortable fit. Highly recommend for any casual occasion."
+        }
+      ],
+      slug: "zity-mens-flannel-hoodie-shirts-long-sleeve"
     },
     {
-        category: "Mens",
-        subcategory: "Formal",
-        availability: "In Stock",
-        name: "MAGE MALE Men's 3 Pieces Suit Elegant Solid One Button Slim Fit Single Breasted Party Blazer Vest Pants Set",
-        price: "$72.59",
-        images: [
-          "https://m.media-amazon.com/images/I/61Ysy6IFE3L._AC_SL1500_.jpg"
-        ],
-        material: "80% Polyester and 20% Viscose",
-        fit: "Regular Fit",
-        colors: ["Black", "Brilliant Black", "Brown"],
-        sizes: ["S", "M", "L", "XL"],
-        shippingInfo: [
-          "FREE delivery Saturday, February 22 Or Prime members get FREE delivery Tomorrow, February 18. Order within 10 hrs 48 mins. Join Prime"
-        ],
-        features: ["Dry Clean Only", "Imported"],
-        slug: "mage-male-mens-3-pieces-suit"
-      },
-      {
-        category: "Mens",
-        subcategory: "Formal",
-        availability: "",
-        name: "WULFUL Men’s Slim Fit Suit One Button 3-Piece Blazer Dress Business Wedding Party Jacket Vest & Pant",
-        price: "$72.59",
-        images: [
-          "https://m.media-amazon.com/images/I/61hV5GfKiYL._AC_SL1500_.jpg"
-        ],
-        material: "80% Polyester and 20% Viscose",
-        fit: "Regular Fit",
-        colors: [
-          "Black", "Blue", "Brown", "Coffee-054", "Coffee-055", "Dark Grey", "Dark Red",
-          "Grey-054", "Light Blue", "Light Brown", "Light Brown-054", "Light Grey",
-          "New-blue(5pcs/Set)", "New-orange(5pcs/Set)", "Royal Blue", "Sage Green(5pcs/Set）",
-          "Sage Green-new", "Teal Blue", "Black-056", "Grey-0127", "Hbl-0127", "Navy Blue-055",
-          "Purple", "New-khaki(5pcs/Set)", "Wine Red", "Light Coffee-056", "Light Khaki",
-          "White-0127", "Bkdg-0233", "New-light Brown(5pcs/Set)"
-        ],
-        sizes: ["S", "M", "L", "XL"],
-        shippingInfo: [
-          "FREE delivery February 24 - March 2 Or fastest delivery February 24 - 27"
-        ],
-        features: ["Dry Clean Only", "Imported"],
-        slug: "wulful-mens-slim-fit-suit"
-      },
-      {
-        category: "Mens",
-        subcategory: "Formal",
-        availability: "In Stock",
-        name: "Gioberti Men's Formal Suit Vest Fit for Business or Casual Dress",
-        price: "$26.99",
-        images: [
-          "https://m.media-amazon.com/images/I/91JLc+ZAs7L._AC_SL1500_.jpg",
-          "https://m.media-amazon.com/images/I/71lPTWr0f3L._AC_SL1500_.jpg",
-          "https://m.media-amazon.com/images/I/616Tk4yE0dL._AC_SL1500_.jpg"
-        ],
-        material: "70% Polyester, 30% Viscose",
-        fit: "Regular Fit",
-        colors: [
-          "Black", "Blue", "Brown", "Dark Grey", "Light Grey", "Navy", "Wine Red"
-        ],
-        sizes: ["S", "M", "L", "XL"],
-        shippingInfo: [
-          "FREE delivery Saturday, February 22 Or Prime members get FREE delivery Tomorrow, February 18. Order within 10 hrs 48 mins. Join Prime"
-        ],
-        features: ["Dry Clean Only", "Imported"],
-        slug: "gioberti-mens-formal-suit-vest"
-      },
-      {
-        category: "Mens",
-        subcategory: "Formal",
-        availability: "In Stock",
-        name: "COOFANDY Men's Suit Vest Slim Fit Formal Dress Waistcoat Business Vests for Suit or Tuxedo",
-        price: "$29.74",
-        images: [
-          "https://m.media-amazon.com/images/I/71sO7MTqTuL._AC_SL1500_.jpg"
-        ],
-        material: "80% Polyester, 20% Viscose",
-        fit: "Slim Fit",
-        colors: [
-          "Black", "Navy Blue", "Light Grey", "Dark Grey", "Burgundy", "White"
-        ],
-        sizes: ["S", "M", "L", "XL"],
-        shippingInfo: [
-          "FREE delivery Saturday, February 22 Or Prime members get FREE delivery Tomorrow, February 18. Order within 10 hrs 48 mins. Join Prime"
-        ],
-        features: ["Dry Clean Only", "Imported"],
-        slug: "coofandy-mens-suit-vest"
-      },
-      {
-        category: "Mens",
-        subcategory: "Formal",
-        availability: "In Stock",
-        name: "COOFANDY Mens Floral Tuxedo Jacket Paisley Shawl Lapel Suit Blazer Jacket for Dinner, Prom, Wedding",
-        price: "$69.99",
-        images: [
-          "https://m.media-amazon.com/images/I/71BteJpCbeL._AC_SL1500_.jpg"
-        ],
-        material: "100% Polyester",
-        fit: "Slim Fit",
-        colors: [
-          "Black", "Navy Blue", "White", "Red", "Gold", "Silver"
-        ],
-        sizes: ["S", "M", "L", "XL"],
-        shippingInfo: [
-          "FREE delivery Saturday, February 22 Or Prime members get FREE delivery Tomorrow, February 18. Order within 10 hrs 48 mins. Join Prime"
-        ],
-        features: ["Dry Clean Only", "Imported"],
-        slug: "coofandy-mens-floral-tuxedo-jacket"
-    },    
+      category: "Mens",
+      subcategory: "Casual",
+      availability: "In Stock",
+      name: "Poriff Men's Casual Slim Fit Knitted Turtleneck Sweater",
+      price: "$16.99",
+      images: [
+        "https://m.media-amazon.com/images/I/81wkLbG0uUL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/819pzfTzfTL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/81slhNvJ+pL._AC_SL1500_.jpg",
+      ],
+      material: "95% Cotton, 5% Spandex",
+      fit: "Slim Fit",
+      colors: ["apricot", "black", "purple"],
+      sizes: ["M", "L", "XL"],
+      shippingInfo: [
+        "Free delivery Monday, March 3 on orders shipped by Amazon over $35 Or fastest Same-Day delivery Today 5 PM - 10 PM. Order within 5 hrs 54 mins.",
+        "Expedited shipping available for faster delivery.",
+        "Standard shipping takes 3-5 business days. Free for orders over $50."
+      ],
+      features: [
+        "Slim fit turtleneck sweater made from a blend of cotton and spandex.",
+        "Lightweight and knitted for a comfortable and stylish look.",
+        "Ideal for casual wear and can be layered for added warmth.",
+        "Pull-on closure for easy wearing.",
+        "Available in multiple colors to suit various preferences.",
+        "Machine washable for easy care and maintenance.",
+        "Durable construction ensures long-lasting wear.",
+        "Soft and cozy, perfect for cooler weather.",
+        "Imported quality from a reputable manufacturer."
+      ],
+      reviews: [
+        {
+          name: "Takashi Yamamoto",
+          comment: "Stylish and comfortable turtleneck. Great for casual outings."
+        },
+        {
+          name: "Luis Fernandez",
+          comment: "Nice fit and fabric. The sweater looks great and feels soft."
+        },
+        {
+          name: "Isabella Rossi",
+          comment: "Highly recommend this sweater. It’s perfect for any casual occasion."
+        }
+      ],
+      slug: "poriff-mens-casual-slim-fit-knitted-turtleneck-sweater"
+    },  
     {
-        category: "Mens",
-        subcategory: "Sport",
-        availability: "In Stock",
-        name: "TELALEO 5 Pack Men's Athletic Compression Shirts Sleeveless Workout Tank Top Sports Base Layer Running Basketball",
-        price: "$28.99",
-        images: [
-          "https://m.media-amazon.com/images/I/61BAbRy-v3L._AC_SL1500_.jpg"
-        ],
-        material: "85% Polyester, 15% Elastane",
-        fit: "Regular Fit",
-        colors: [
-          "Black/Charcoal/White(five Pack)", "Black/White(five Pack)"
-        ],
-        sizes: ["S", "M", "L", "XL"],
-        shippingInfo: [
-          "FREE delivery Saturday, February 22 on orders shipped by Amazon over $35 Or Prime members get FREE delivery Tomorrow, February 18. Order within 10 hrs 34 mins. Join Prime"
-        ],
-        features: ["Machine Wash", "Imported"],
-        slug: "telaleo-5-pack-mens-athletic-compression-shirts"
-      },
-      {
-        category: "Mens",
-        subcategory: "Sport",
-        availability: "In Stock",
-        name: "adidas Men's Essentials 3-Stripes Tricot Jogger Pants",
-        price: "$31.50",
-        images: [
-          "https://m.media-amazon.com/images/I/71KAsomUw8S._AC_SL1500_.jpg"
-        ],
-        material: "100% Polyester",
-        fit: "Regular Fit",
-        colors: [
-          "Black", "Navy Blue", "Grey", "White"
-        ],
-        sizes: ["S", "M", "L", "XL"],
-        shippingInfo: [
-          "FREE delivery Saturday, February 22 Or Prime members get FREE delivery Tomorrow, February 18. Order within 10 hrs 34 mins. Join Prime"
-        ],
-        features: ["Machine Wash", "Imported"],
-        slug: "adidas-mens-essentials-3-stripes-tricot-jogger-pants"
-      },
-      {
-        category: "Mens",
-        subcategory: "Sport",
-        availability: "In Stock",
-        name: "Under Armour Men's HeatGear Leggings",
-        price: "$31.58",
-        images: [
-          "https://m.media-amazon.com/images/I/41XJtzfXqZL._AC_SL1000_.jpg",
-          "https://m.media-amazon.com/images/I/41M3IWPdS-L._AC_SL1000_.jpg"
-        ],
-        material: "84% Polyester, 16% Elastane",
-        fit: "Compression Fit",
-        colors: ["Black", "Graphite", "White"],
-        sizes: ["S", "M", "L", "XL"],
-        shippingInfo: [
-          "FREE delivery Saturday, February 22 Or Prime members get FREE delivery Tomorrow, February 18. Order within 10 hrs 34 mins. Join Prime"
-        ],
-        features: ["Machine Wash", "Imported"],
-        slug: "under-armour-mens-heatgear-leggings"
-      },
-      {
-        category: "Mens",
-        subcategory: "Sport",
-        availability: "In Stock",
-        name: "3 Pack Polarized Sports Sunglasses for Men, Mens Sunglasses Wrap Around UV400 Protection for Cycling Fishing Driving",
-        price: "$16.89",
-        images: [
-          "https://m.media-amazon.com/images/I/71Nr7iG0ZQL._AC_SL1500_.jpg"
-        ],
-        material: "Plastic",
-        fit: "Regular Fit",
-        colors: ["Black", "Blue", "Red"],
-        sizes: ["One Size Fits All"],
-        shippingInfo: [
-          "FREE delivery Saturday, February 22 on orders shipped by Amazon over $35 Or Prime members get FREE delivery Tomorrow, February 18. Order within 10 hrs 34 mins. Join Prime"
-        ],
-        features: ["UV400 Protection", "Polarized Lenses", "Lightweight", "Imported"],
-        slug: "3-pack-polarized-sports-sunglasses-for-men"
-      },
-      {
-        category: "Womens",
-        subcategory: "Casual",
-        availability: "In Stock",
-        name: "PRETTYGARDEN Womens Summer Jumpsuits Dressy Casual One Piece Outfits Sleeveless Mock Neck Wide Leg Pants Rompers with Pockets",
-        price: "$39.99",
-        images: [
-          "https://m.media-amazon.com/images/I/61jEud+VHvL._AC_SL1500_.jpg"
-        ],
-        material: "95% Polyester, 5% Spandex",
-        fit: "Regular Fit",
-        colors: ["Black", "Navy Blue", "Wine Red", "Dark Green", "Beige"],
-        sizes: ["S", "M", "L", "XL"],
-        shippingInfo: [
-          "FREE delivery Saturday, February 22 Or Prime members get FREE delivery Tomorrow, February 18. Order within 10 hrs 34 mins. Join Prime"
-        ],
-        features: ["Machine Wash", "Imported"],
-        slug: "prettygarden-womens-summer-jumpsuits"
-    }                          
+      category: "Mens",
+      subcategory: "Casual",
+      availability: "In Stock",
+      name: "Men's KnitFlex Breeze Mesh Casual Walking Shoes",
+      price: "$42.99",
+      images: [
+        "https://m.media-amazon.com/images/I/711lA5rk08L._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71cL-s+uiFL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71lG0nNNu7L._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71F9nxt7nkL._AC_SL1500_.jpg",
+      ],
+      material: "Mesh",
+      fit: "Regular Fit",
+      colors: ["black", "blue", "gray", "white"],
+      sizes: ["8", "9", "10", "11"],
+      shippingInfo: [
+        "Free delivery Sunday, March 2 on orders shipped by Amazon over $35 Or Prime members get free delivery Tomorrow, February 26. Order within 3 hrs 59 mins.",
+        "Expedited shipping available. Delivered by Friday, February 28.",
+        "Standard shipping takes 3-5 business days. Free for orders over $50."
+      ],
+      features: [
+        "Lightweight and breathable mesh upper for comfort.",
+        "Lace-up design for a secure and adjustable fit.",
+        "Perfect for casual walking and everyday wear.",
+        "Comfortable and cushioned insole for all-day wear.",
+        "Non-slip outsole provides excellent traction.",
+        "Available in multiple colors to match various outfits.",
+        "Durable construction ensures long-lasting wear.",
+        "Easy to clean and maintain.",
+        "Imported quality from a reputable manufacturer."
+      ],
+      reviews: [
+        {
+          name: "Takahiro Sato",
+          comment: "Excellent casual shoes for everyday wear. Comfortable and stylish."
+        },
+        {
+          name: "Juan Perez",
+          comment: "Great quality and fit. Perfect for my daily walks."
+        },
+        {
+          name: "Emily Watson",
+          comment: "These shoes look fantastic and feel great. Highly recommend."
+        }
+      ],
+      slug: "bruno-marc-mens-knitflex-breeze-casual-walking-shoes"
+    },         
+    {
+      category: "Mens",
+      subcategory: "Casual",
+      availability: "In Stock",
+      name: "Bruno Marc Men's Arch Support Casual Slip-on Shoes",
+      price: "$36.99",
+      images: [
+        "https://m.media-amazon.com/images/I/81v+LfGP4tL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71e66rV6I0L._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/91979Qmg4bL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71x9UehhCRL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/81m4CKsbSOL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/81AIF3WmQwL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/81YobMQwIEL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/81tClhVFUmL._AC_SL1500_.jpg"
+      ],
+      material: "Mesh",
+      fit: "Regular Fit",
+      colors: ["black", "blue", "gray", "white"],
+      sizes: ["8", "9", "10", "11"],
+      shippingInfo: [
+        "Free delivery Sunday, March 2 on orders shipped by Amazon over $35 Or Prime members get free delivery Tomorrow, February 26. Order within 3 hrs 59 mins.",
+        "Expedited shipping available. Delivered by Friday, February 28.",
+        "Standard shipping takes 3-5 business days. Free for orders over $50."
+      ],
+      features: [
+        "Lightweight and breathable mesh upper for comfort.",
+        "Slip-on design for easy wear and removal.",
+        "Perfect for casual walking and everyday wear.",
+        "Comfortable and cushioned insole for all-day wear.",
+        "Non-slip outsole provides excellent traction.",
+        "Available in multiple colors to match various outfits.",
+        "Durable construction ensures long-lasting wear.",
+        "Easy to clean and maintain.",
+        "Imported quality from a reputable manufacturer."
+      ],
+      reviews: [
+        {
+          name: "Takashi Yamamoto",
+          comment: "Stylish and comfortable slip-ons. Great for casual outings."
+        },
+        {
+          name: "Luis Fernandez",
+          comment: "Nice fit and fabric. The shoes look great and feel soft."
+        },
+        {
+          name: "Isabella Rossi",
+          comment: "Highly recommend these slip-ons. Perfect for any casual occasion."
+        }
+      ],
+      slug: "bruno-marc-mens-arch-support-casual-slip-on-shoes"
+    },
+    {
+      category: "Mens",
+      subcategory: "Casual",
+      availability: "In Stock",
+      name: "Gesean Men's Color Block Pullover Casual Fleece Hoodie",
+      price: "$29.99",
+      images: [
+        "https://m.media-amazon.com/images/I/71NtFwB6bIL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71ohnqy8D5L._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71PScPj3AKL._AC_SL1500_.jpg",
+      ],
+      material: "Fleece",
+      fit: "Regular Fit",
+      colors: ["black", "blue", "red", "yellow"],
+      sizes: ["M", "L", "XL"],
+      shippingInfo: [
+        "Only 1 left in stock - order soon.",
+        "Free delivery Sunday, March 2 on orders shipped by Amazon over $35 Or Prime members get free delivery Tomorrow, February 26. Order within 3 hrs 59 mins.",
+        "Expedited shipping available. Delivered by Friday, February 28.",
+        "Standard shipping takes 3-5 business days. Free for orders over $50."
+      ],
+      features: [
+        "Pullover fleece hoodie with color block design.",
+        "Long sleeves and a convenient front pocket.",
+        "Made from high-quality fleece for warmth and comfort.",
+        "Regular fit suitable for casual outings and everyday wear.",
+        "Available in multiple colors to suit various preferences.",
+        "Machine washable for easy care and maintenance.",
+        "Durable stitching and construction for long-lasting wear.",
+        "Perfect for layering or wearing on its own.",
+        "Comfortable and cozy, ideal for cooler weather."
+      ],
+      reviews: [
+        {
+          name: "Hiroshi Nakamura",
+          comment: "Great quality hoodie. Comfortable and stylish, perfect for casual wear."
+        },
+        {
+          name: "Mateo Garcia",
+          comment: "Excellent fit and fabric. The color block design is unique."
+        },
+        {
+          name: "Anastasia Ivanova",
+          comment: "Beautiful hoodie with a comfortable fit. Highly recommend for any casual occasion."
+        }
+      ],
+      slug: "gesean-mens-color-block-pullover-casual-fleece-hoodie"
+    },
+    // Mens Sport       
+    {
+      category: "Mens",
+      subcategory: "Sport",
+      availability: "In Stock",
+      name: "adidas Unisex Defender 4.0 Duffel Athletic Sports Gym Bag",
+      price: "$31.42",
+      images: [
+        "https://m.media-amazon.com/images/I/81cpLO14-9L._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/81+FOTk685S._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/81LQ8LwxthL._AC_SL1500_.jpg",
+      ],
+      material: "Durable Fabric",
+      fit: "Medium (66L)",
+      colors: ["black/white", "blue", "red", "gray"],
+      sizes: ["D"],
+      shippingInfo: [
+        "In Stock.",
+        "Free delivery Sunday, March 2 on orders shipped by Amazon over $35 Or Prime members get free delivery Tomorrow, February 26. Order within 3 hrs 59 mins.",
+        "Expedited shipping available. Delivered by Friday, February 28.",
+        "Standard shipping takes 3-5 business days. Free for orders over $50."
+      ],
+      features: [
+        "Lifetime Warranty, built to last.",
+        "Water-resistant base material to keep your stuff dry.",
+        "Multiple zippered pockets for plenty of storage space.",
+        "Durable material - built to stand up to wear and tear.",
+        "Adjustable shoulder strap - wear at the length that works for you.",
+        "Plenty of room for team embroidery and branding.",
+        "Perfect for gym, travel, and sports activities.",
+        "Modern look with a durable design.",
+        "Easy access to your personal essentials."
+      ],
+      reviews: [
+        {
+          name: "John Smith",
+          comment: "Great duffel bag, very durable and spacious. Perfect for gym."
+        },
+        {
+          name: "Emily Watson",
+          comment: "Love the design and the water-resistant material. Highly recommended."
+        },
+        {
+          name: "Michael Johnson",
+          comment: "Excellent quality and plenty of pockets. Great for travel."
+        }
+      ],
+      slug: "adidas-unisex-defender-4-0-duffel-athletic-sports-gym-bag"
+    },
+    {
+      category: "Mens",
+      subcategory: "Sport",
+      availability: "In Stock",
+      name: "Fishing Sunglasses UV400 with Hard Case",
+      price: "$24.99",
+      images: [
+        "https://m.media-amazon.com/images/I/71JeXyXjOaL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/61cq1aklDjL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/61XymEKyvsL._AC_SL1500_.jpg",
+      ],
+      material: "FlexTuff Composite",
+      fit: "One Size Fits Most",
+      colors: ["gloss black"],
+      sizes:  ["D"],
+      shippingInfo: [
+        "In Stock.",
+        "Free delivery Sunday, March 2 on orders shipped by Amazon over $35 Or Prime members get free delivery Tomorrow, February 26. Order within 3 hrs 59 mins.",
+        "Expedited shipping available. Delivered by Friday, February 28.",
+        "Standard shipping takes 3-5 business days. Free for orders over $50."
+      ],
+      features: [
+        "FlexTuff Composite frame for durability.",
+        "Polarized lenses for reducing glare on water surfaces.",
+        "Gloss Black Frame with Fire Mirror Amber Lens.",
+        "Free Hard Case and Lens Cleaning Pouch included.",
+        "UV400 means 100% UV Protection.",
+        "Lightweight design to be worn all day.",
+        "Wide sides to reduce side glare.",
+        "Ideal for friends, fishermen, and family.",
+        "Durable design perfect for all outdoor activities."
+      ],
+      reviews: [
+        {
+          name: "Takashi Yamamoto",
+          comment: "Stylish and comfortable sunglasses. Great for fishing."
+        },
+        {
+          name: "Luis Fernandez",
+          comment: "Nice fit and quality. The polarization works well."
+        },
+        {
+          name: "Isabella Rossi",
+          comment: "Highly recommend these sunglasses. Perfect for outdoor activities."
+        }
+      ],
+      slug: "fishoholic-polarized-fishing-sunglasses-uv400-hard-case"
+    },   
+    {
+      category: "Mens",
+      subcategory: "Sport",
+      availability: "In Stock",
+      name: "SIR7 Men's Gym Workout Long Sleeve Pullover Hoodie",
+      price: "$25.99",
+      images: [
+        "https://m.media-amazon.com/images/I/91oZKwufTmL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/91NAGB1soVL._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/91tzdBomBpL._AC_SL1500_.jpg",
+      ],
+      material: "65% Cotton, 35% Polyester",
+      fit: "Regular Fit",
+      colors: ["army green", "black", "grey", "blue", "white", "wine"],
+      sizes: ["Small", "Medium", "Large", "X-Large", "XX-Large", "3X-Large"],
+      shippingInfo: [
+        "In Stock.",
+        "Free delivery Monday, March 3 on orders shipped by Amazon over $35 Or Prime members get free delivery Friday, February 28. Order within 32 mins.",
+        "Expedited shipping available. Delivered by Friday, February 28.",
+        "Standard shipping takes 3-5 business days. Free for orders over $50."
+      ],
+      features: [
+        "Lightweight and comfortable long sleeve pullover hoodie.",
+        "Made from a blend of cotton and polyester for breathability.",
+        "Regular fit suitable for gym workouts and casual wear.",
+        "Drawstring hood and elastic cuffs for a secure fit.",
+        "Available in multiple colors to suit various preferences.",
+        "Machine washable for easy care and maintenance.",
+        "Durable construction ensures long-lasting wear.",
+        "Perfect for layering or wearing on its own.",
+        "Soft and cozy, ideal for cooler weather."
+      ],
+      reviews: [
+        {
+          name: "Carlos Ramirez",
+          comment: "Great quality hoodie, perfect for my gym workouts."
+        },
+        {
+          name: "Emily Watson",
+          comment: "Comfortable and stylish. Highly recommend for any sports activities."
+        },
+        {
+          name: "Michael Johnson",
+          comment: "Love the fit and fabric. The hoodie is durable and well-made."
+        }
+      ],
+      slug: "sir7-mens-gym-workout-long-sleeve-pullover-hoodie"
+    },
+    {
+      category: "Mens",
+      subcategory: "Sport",
+      availability: "In Stock",
+      name: "ASICS Men's Gel-Contend 8 Running Shoes",
+      price: "$49.95",
+      images: [
+        "https://m.media-amazon.com/images/I/61N+Ny8EVzL._AC_SL1200_.jpg",
+        "https://m.media-amazon.com/images/I/61MulNaUMBL._AC_SL1200_.jpg",
+        "https://m.media-amazon.com/images/I/51IPqfZUIOL._AC_SL1200_.jpg",
+        "https://m.media-amazon.com/images/I/61n519hr6XL._AC_SL1200_.jpg",
+        "https://m.media-amazon.com/images/I/61nnH8q9e3L._AC_SL1200_.jpg",
+        "https://m.media-amazon.com/images/I/61wSIzi+mSL._AC_SL1024_.jpg",
+        "https://m.media-amazon.com/images/I/61w2mRsx04L._AC_SL1200_.jpg",
+      ],
+      material: "100% Synthetic",
+      fit: "Regular Fit",
+      colors: ["black", "white", "blue"],
+      sizes: ["8", "9", "10", "11", "12"],
+      shippingInfo: [
+        "In Stock.",
+        "Free delivery March 15 - 28 Or fastest delivery March 11 - 18.",
+        "Expedited shipping available. Delivered by Friday, February 28.",
+        "Standard shipping takes 3-5 business days. Free for orders over $50."
+      ],
+      features: [
+        "Lightweight and comfortable running shoes.",
+        "Made from 100% synthetic materials.",
+        "Rubber sole for durability and traction.",
+        "Supportive fit with a comfortable toe box.",
+        "Suitable for everyday wear and running.",
+        "Machine washable for easy care and maintenance.",
+        "Durable construction ensures long-lasting wear.",
+        "Imported quality from a reputable manufacturer.",
+        "Soft and cushioned for added comfort."
+      ],
+      reviews: [
+        {
+          name: "Takashi Yamamoto",
+          comment: "Stylish and comfortable running shoes. Great for daily runs."
+        },
+        {
+          name: "Luis Fernandez",
+          comment: "Nice fit and quality. The shoes provide excellent support."
+        },
+        {
+          name: "Isabella Rossi",
+          comment: "Highly recommend these running shoes. Perfect for outdoor activities."
+        }
+      ],
+      slug: "asics-mens-gel-contend-8-running-shoes"
+    },
+    {
+      category: "Mens",
+      subcategory: "Sport",
+      availability: "Only 1 left in stock - order soon.",
+      name: "FoxQ Men's Sweat Shorts with Secure Zipper Pockets",
+      price: "$16.99",
+      images: [
+        "https://m.media-amazon.com/images/I/71Eso0MI44L._AC_SL1500_.jpg",
+        "https://m.media-amazon.com/images/I/71JkzOmHdNL._AC_SL1500_.jpg",
+      ],
+      material: "Sweat Fabric",
+      fit: "Regular Fit",
+      colors: ["black", "grey", "navy"],
+      sizes: ["Small", "Medium", "Large", "X-Large", "XX-Large"],
+      shippingInfo: [
+        "Only 1 left in stock - order soon.",
+        "Free delivery Sunday, March 2 on orders shipped by Amazon over $35 Or Prime members get free delivery Tomorrow, February 26. Order within 3 hrs 59 mins.",
+        "Expedited shipping available. Delivered by Friday, February 28.",
+        "Standard shipping takes 3-5 business days. Free for orders over $50."
+      ],
+      features: [
+        "Comfortable and stylish sweat shorts.",
+        "Secure zipper pockets for storing essentials.",
+        "Elastic waist with drawstring for a secure fit.",
+        "Made from sweat fabric for a comfortable feel.",
+        "Available in multiple colors to suit various preferences.",
+        "Machine washable for easy care and maintenance.",
+        "Durable construction ensures long-lasting wear.",
+        "Perfect for casual outings and gym workouts.",
+        "Soft and cozy, ideal for everyday wear."
+      ],
+      reviews: [
+        {
+          name: "Carlos Ramirez",
+          comment: "Great quality shorts, perfect for my gym workouts."
+        },
+        {
+          name: "Emily Watson",
+          comment: "Comfortable and stylish. Highly recommend for any casual activities."
+        },
+        {
+          name: "Michael Johnson",
+          comment: "Love the fit and fabric. The shorts are durable and well-made."
+        }
+      ],
+      slug: "foxq-mens-sweat-shorts-with-secure-zipper-pockets"
+    },          
   ];
 
 

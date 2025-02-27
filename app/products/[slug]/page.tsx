@@ -1,7 +1,7 @@
 import Faq from "@/components/faq";
 import Details from "@/components/product/details";
 import Reviews from "@/components/product/reviews";
-import { Product, products } from "@/lib/data";
+import { Product, products, Review } from "@/lib/data";
 
 export default async function ProfuctDetails({
   params,
@@ -17,7 +17,7 @@ export default async function ProfuctDetails({
       <main className="px-20 py-20 max-xl:px-4">
         <Details product={product as Product} />
         <div className="py-20 divider max-xl:py-10"></div>
-        <Reviews />
+        <Reviews reviews={product?.reviews as Review[]} />
         <div className="py-20 divider max-xl:py-10"></div>
         <Faq />
       </main>

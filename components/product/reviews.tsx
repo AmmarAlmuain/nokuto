@@ -1,28 +1,8 @@
 import Image from "next/image";
 import dummyAvatar from "@/assets/images/dummyAvatar.svg";
+import { Review } from "@/lib/data";
 
-const reviews = [
-  {
-    id: 1,
-    name: "Alex M",
-    comment:
-      "Absolutely love this denim jacket! The fit is perfect, and the distressed detailing gives it a rugged yet stylish look. It's become my go-to piece for casual outings. Highly recommend!",
-  },
-  {
-    id: 2,
-    name: "Peter Loker",
-    comment:
-      "Great quality and versatile styling options. The buttons are sturdy, and the jacket feels well-made. I deducted one star because I wish it had an inside pocket, but overall.",
-  },
-  {
-    id: 3,
-    name: "Chris B",
-    comment:
-      "Urban Explorer exceeded my expectations. The denim is of excellent quality, and the fit is just right. It's become my favorite jacket for weekend adventures.",
-  },
-];
-
-export default function Reviews() {
+export default function Reviews({ reviews }: { reviews: Review[] }) {
   return (
     <>
       <section className="product-reviews w-full">

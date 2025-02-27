@@ -13,16 +13,14 @@ export default function Details({ product }: { product: Product }) {
     <>
       <section className="w-full product-details">
         <div className="flex gap-x-10 max-xl:flex-col max-xl:gap-y-20">
-          <div className="w-full relative max-w-[560px] max-xl:max-w-full h-[560px] flex justify-center items-center bg-white/97 rounded-2xl p-5">
-            <div className="absolute max-xl:bottom-0 xl:left-0 max-xl:flex-row max-xl:mb-5 max-xl:ml-0 max-xl:gap-x-3 p-[10px] bg-white rounded-lg gap-y-3 ml-5 flex flex-col">
+          <div className="w-full relative max-w-[560px] max-xl:max-w-full h-[560px] flex justify-center items-center p-5">
+            <div className="absolute max-xl:bottom-0 xl:left-0 max-xl:flex-row max-xl:mb-5 max-xl:ml-0 max-xl:gap-x-3 p-[10px] bg-white/97 shadow-md rounded-lg gap-y-3 ml-5 flex flex-col">
               {product.images.map((image, index) => {
                 return (
                   <div
                     key={index}
-                    className={`w-16 h-12 cursor-pointer rounded flex justify-center items-center ${
-                      activePreviewImage === index
-                        ? "bg-white/90"
-                        : "bg-white/97"
+                    className={`w-16 h-12 cursor-pointer rounded bg-white flex justify-center items-center ${
+                      activePreviewImage === index ? "shadow-md" : "bg-white"
                     }`}
                     onClick={() => {
                       if (activePreviewImage === index) {
@@ -109,9 +107,9 @@ export default function Details({ product }: { product: Product }) {
                     Color
                   </span>
                   <div className="w-fit rounded-full border border-white/95 px-[9px] py-[6px] flex gap-x-1">
-                    <button className="rounded-full bg-grey/15 w-5 h-5"></button>
-                    <button className="rounded-full bg-[#DAA573] w-5 h-5"></button>
-                    <button className="rounded-full bg-[#DAD673] w-5 h-5"></button>
+                    <div className="rounded-full bg-grey/15 opacity-50 cursor-not-allowed w-5 h-5"></div>
+                    <div className="rounded-full bg-[#DAA573] opacity-50 cursor-not-allowed w-5 h-5"></div>
+                    <div className="rounded-full bg-[#DAD673] opacity-50 cursor-not-allowed w-5 h-5"></div>
                   </div>
                 </div>
                 <div className="flex flex-col w-full gap-y-1">

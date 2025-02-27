@@ -1,11 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import ShoppingCart from "@/components/icons/shopping-cart";
 import { useState, useEffect, useMemo } from "react";
 import { Product, products } from "@/lib/data";
 import { shuffleArray } from "@/lib/utils";
 import Link from "next/link";
+import Plus from "./icons/plus";
 
 export default function Products() {
   const categories = useMemo(() => ["All", "Mens", "Womens", "Kids"], []);
@@ -64,7 +64,7 @@ export default function Products() {
             </div>
           </div>
           <div>
-            <div className="flex w-full items-center justify-between overflow-x-auto overflow-y-hidden border-b border-t border-white/95 py-[30px] max-xl:h-[62px] max-xl:py-5">
+            <div className="flex w-full items-center justify-between overflow-x-auto overflow-y-hidden border-b border-t border-white/95 py-[30px] max-xl:h-[62px] h-24 max-xl:py-5">
               <div className="flex">
                 {["All", "Menswear", "Womenswear", "Kidswear"].map(
                   (category, index) => {
@@ -164,12 +164,12 @@ export default function Products() {
               </div>
             </div>
           </div>
-          <div className="flex items-start justify-start gap-x-[30px] overflow-x-auto pb-[60px]">
+          <div className="flex items-start justify-start gap-x-[30px] overflow-x-auto pb-5">
             {filteredProducts &&
               filteredProducts.map((product, index) => (
                 <div key={index} className="flex flex-col gap-y-5">
                   <Link href={`/products/${product.slug}`}>
-                    <div className="w-[318px] relative h-[300px] flex justify-center items-center overflow-hidden rounded-lg">
+                    <div className="w-64 h-64 relative flex justify-center items-center overflow-hidden rounded-lg">
                       <Image
                         src={product.images[0]}
                         alt="product-image"
@@ -188,7 +188,7 @@ export default function Products() {
                         </span>
                       </div>
                       <button className="flex items-center w-[52px] h-[52px] justify-center rounded-full bg-yellow/50 p-4">
-                        <ShoppingCart />
+                        <Plus className="font-bold" />
                       </button>
                     </div>
                   </Link>

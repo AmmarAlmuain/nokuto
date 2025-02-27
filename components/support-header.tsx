@@ -62,11 +62,11 @@ export default function SupportHeader() {
                   </span>
                 </div>
                 <div className="flex gap-x-2.5">
-                  <button className="px-5 flex gap-x-[6px] py-[14px] justify-center items-center text-sm text-grey/15 font-medium border border-white/95 rounded-[32px]">
+                  <button className="px-5 flex opacity-50 cursor-not-allowed gap-x-[6px] py-[14px] justify-center items-center text-sm text-grey/15 font-medium border border-white/95 rounded-[32px]">
                     <Phone />
                     Call Now
                   </button>
-                  <button className="px-5 flex gap-x-[6px] py-[14px] bg-grey/15 justify-center items-center text-sm text-white font-medium rounded-[32px]">
+                  <button className="px-5 flex opacity-50 cursor-not-allowed gap-x-[6px] py-[14px] bg-grey/15 justify-center items-center text-sm text-white font-medium rounded-[32px]">
                     Get Directions -&gt;
                   </button>
                 </div>
@@ -81,11 +81,11 @@ export default function SupportHeader() {
                   </span>
                 </div>
                 <div className="flex gap-x-2.5">
-                  <button className="px-5 flex gap-x-[6px] py-[14px] justify-center items-center text-sm text-grey/15 font-medium border border-white/95 rounded-[32px]">
+                  <button className="px-5 opacity-50 cursor-not-allowed flex gap-x-[6px] py-[14px] justify-center items-center text-sm text-grey/15 font-medium border border-white/95 rounded-[32px]">
                     <Phone />
                     Call Now
                   </button>
-                  <button className="px-5 flex gap-x-[6px] py-[14px] bg-grey/15 justify-center items-center text-sm text-white font-medium rounded-[32px]">
+                  <button className="px-5 flex opacity-50 cursor-not-allowed gap-x-[6px] py-[14px] bg-grey/15 justify-center items-center text-sm text-white font-medium rounded-[32px]">
                     Get Directions -&gt;
                   </button>
                 </div>
@@ -98,11 +98,11 @@ export default function SupportHeader() {
                   </span>
                 </div>
                 <div className="flex gap-x-2.5">
-                  <button className="px-5 flex gap-x-[6px] py-[14px] justify-center items-center text-sm text-grey/15 font-medium border border-white/95 rounded-[32px]">
+                  <button className="px-5 flex opacity-50 cursor-not-allowed gap-x-[6px] py-[14px] justify-center items-center text-sm text-grey/15 font-medium border border-white/95 rounded-[32px]">
                     <Phone />
                     Call Now
                   </button>
-                  <button className="px-5 flex gap-x-[6px] py-[14px] bg-grey/15 justify-center items-center text-sm text-white font-medium rounded-[32px]">
+                  <button className="px-5 flex opacity-50 cursor-not-allowed gap-x-[6px] py-[14px] bg-grey/15 justify-center items-center text-sm text-white font-medium rounded-[32px]">
                     Get Directions -&gt;
                   </button>
                 </div>

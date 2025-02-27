@@ -26,10 +26,9 @@ export default function Footer() {
                 </button>
               </div>
             </div>
-            <div className="flex w-full gap-x-2">
+            <form className="flex w-full gap-x-2">
               <input
                 id="email"
-                name="email"
                 type="email"
                 placeholder="Enter Your Email"
                 className="w-full rounded-[32px] border border-white/95 bg-white/99 py-[14px] pl-4 pr-[26px] placeholder:text-sm placeholder:font-medium"
@@ -39,7 +38,7 @@ export default function Footer() {
                   Subscribe
                 </span>
               </button>
-            </div>
+            </form>
           </div>
           <div className="h-full w-full border-l border-white/95 p-[60px] pr-0 max-xl:border-l-0 max-xl:border-t max-xl:px-[60px] max-xl:py-6">
             <div>
@@ -57,9 +56,7 @@ export default function Footer() {
             </div>
             <div className="flex gap-x-[50px] max-xl:hidden">
               <ul className="flex w-48 flex-col gap-y-9">
-                <Link href={"/"}>
-                  <span className="text-lg font-medium">Home</span>
-                </Link>
+                <span className="text-lg font-medium">Home</span>
                 <div>
                   <ul className="flex flex-col gap-y-[18px]">
                     {[
@@ -95,24 +92,18 @@ export default function Footer() {
                 </li>
                 <div>
                   <ul className="flex flex-col gap-y-[18px]">
-                    <li>
-                      <span className="cursor-pointer text-grey/40">
-                        Casual
-                      </span>
-                    </li>
-                    <li>
-                      <span className="cursor-pointer text-grey/40">
-                        Formal
-                      </span>
-                    </li>
-                    <li>
-                      <span className="cursor-pointer text-grey/40">Party</span>
-                    </li>
-                    <li>
-                      <span className="cursor-pointer text-grey/40">
-                        Business
-                      </span>
-                    </li>
+                    {["Casual", "Formal", "Party"].map((link, index) => {
+                      return (
+                        <Link
+                          key={index}
+                          href={`/products#${["casual", "formal", "party"][index]}`}
+                        >
+                          <span className="cursor-pointer text-grey/40">
+                            {link}
+                          </span>
+                        </Link>
+                      );
+                    })}
                   </ul>
                 </div>
               </ul>
@@ -123,21 +114,18 @@ export default function Footer() {
                 <div>
                   <ul className="flex flex-col gap-y-[18px]">
                     <li>
-                      <span className="cursor-pointer text-grey/40">
+                      <span className="opacity-50 cursor-not-allowed text-grey/40">
                         Casual
                       </span>
                     </li>
                     <li>
-                      <span className="cursor-pointer text-grey/40">
+                      <span className="opacity-50 cursor-not-allowed text-grey/40">
                         Formal
                       </span>
                     </li>
                     <li>
-                      <span className="cursor-pointer text-grey/40">Party</span>
-                    </li>
-                    <li>
-                      <span className="cursor-pointer text-grey/40">
-                        Business
+                      <span className="opacity-50 cursor-not-allowed text-grey/40">
+                        Party
                       </span>
                     </li>
                   </ul>
@@ -150,17 +138,19 @@ export default function Footer() {
                 <div>
                   <ul className="flex flex-col gap-y-[18px]">
                     <li>
-                      <span className="cursor-pointer text-grey/40">
+                      <span className="opacity-50 cursor-not-allowed text-grey/40">
                         Casual
                       </span>
                     </li>
                     <li>
-                      <span className="cursor-pointer text-grey/40">
+                      <span className="opacity-50 cursor-not-allowed text-grey/40">
                         Formal
                       </span>
                     </li>
                     <li>
-                      <span className="cursor-pointer text-grey/40">Party</span>
+                      <span className="opacity-50 cursor-not-allowed text-grey/40">
+                        Party
+                      </span>
                     </li>
                   </ul>
                 </div>

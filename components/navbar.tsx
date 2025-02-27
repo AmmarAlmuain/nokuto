@@ -72,7 +72,7 @@ export default function Navbar() {
               </button>
               <Link
                 href={"/support"}
-                className={`rounded-full border px-5 py-3 transition-all duration-300 ${
+                className={`rounded-full max-md:hidden border px-5 py-3 transition-all duration-300 ${
                   activeRoute === 2
                     ? "bg-yellow/50 border-yellow/50"
                     : "border-white/95 hover:bg-white/95"

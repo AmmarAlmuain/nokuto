@@ -1,9 +1,12 @@
 "use client";
 
-import { useState } from "react";
-
-export default function ProductsHeader() {
-  const [activeTab, setActiveTab] = useState<number>(0);
+export default function ProductsHeader({
+  activeTab,
+  setActiveTab,
+}: {
+  activeTab: number;
+  setActiveTab: React.Dispatch<React.SetStateAction<number>>;
+}) {
   return (
     <>
       <section className="header w-full">
