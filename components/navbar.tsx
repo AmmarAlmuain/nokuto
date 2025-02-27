@@ -20,7 +20,7 @@ export default function Navbar() {
     } else if (pathname.startsWith("/support")) {
       setActiveRoute(2);
     }
-  });
+  }, [pathname]);
   return (
     <>
       <nav className="w-full">

@@ -9,9 +9,9 @@ export default function NewsLetterEmail() {
           <h1 className="font-semibold text-3xl">Welcome to Nokuto! 🌟</h1>
           <hr />
           <p className="text-sm">
-            Dear Customer, Welcome to the Nokuto family! We're thrilled to have
-            you on board. 🎉 <br /> As a special thank you for subscribing,
-            we're excited to offer you an exclusive discount on the first
+            Dear Customer, Welcome to the Nokuto family! We&apos;re thrilled to
+            have you on board. 🎉 <br /> As a special thank you for subscribing,
+            we&apos;re excited to offer you an exclusive discount on the first
             purchase. Use the code{" "}
             <span className="font-semibold text-grey/15 underline">
               WELCOME25
@@ -20,7 +20,7 @@ export default function NewsLetterEmail() {
           </p>
           <hr />
           <p>
-            Here's what you can expect from us: <br />
+            Here&apos;s what you can expect from us: <br />
             <span className="font-semibold text-grey/15">New Arrivals:</span> Be
             the first to know about our latest products and collections. <br />
             <span className="font-semibold text-grey/15">
